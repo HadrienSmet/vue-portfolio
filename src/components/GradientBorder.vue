@@ -4,25 +4,28 @@
   </div>
 </template>
 <script lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 export default {
   setup() {
-    const borderRef = ref(null)
-    function findDegree(element, event) {
-      const rect = element.getBoundingClientRect()
+    const borderRef = ref<HTMLDivElement | null>(null)
+    function findDegree(element: HTMLDivElement | null, event: MouseEvent) {
+      const rect = element!.getBoundingClientRect()
       const x = event.clientX - rect.left
-      const y = event.clientY - rect.right
+      const y = event.clientY - rect.top
       const radianDegree = Math.atan2(y, x)
       const degree = (radianDegree * 180) / Math.PI + 180
 
       return degree
     }
     function handleMouseMove(e: MouseEvent) {
-      const degree = findDegree(ref.current, e)
-      borderRef.value.style.setProperty('--gradient-rotation', `${degree + 110}deg`)
+      const degree = findDegree(borderRef.value, e)
+      borderRef.value!.style.setProperty('--gradient-rotation', `${degree + 110}deg`)
     }
     onMounted(() => {
-      console.log('mounted')
+      window.addEventListener('mousemove', handleMouseMove)
+    })
+    onUnmounted(() => {
+      window.removeEventListener('mousemove', handleMouseMove)
     })
     return { borderRef }
   }
@@ -39,6 +42,6 @@ export default {
     );
   background-clip: padding-box, border-box;
   background-origin: border-box;
-  box-shadow: 0px 2px 6px 1px $clr-2-op2;
+  box-shadow: 0px 2px 6px 1px var(--clr-2-op2);
 }
 </style>

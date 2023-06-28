@@ -1,23 +1,23 @@
 <template>
-  <h1>
-    <span class="hadrien-smet">Hadrien Smet</span>
+  <div>
+    <h1 class="hadrien-smet">Hadrien Smet</h1>
     <span class="web-developer">Web developer</span>
-  </h1>
+  </div>
 </template>
 <script setup lang="ts"></script>
-<style>
-h1 {
-  font-family: 'title-fonts';
-  font-weight: 900;
+<style scoped>
+div {
   display: flex;
   flex-direction: column;
-  letter-spacing: 2px;
-  line-height: 1;
-  position: absolute;
+  font-family: 'title-fonts';
   font-size: 4.5em;
-  position: absolute;
 }
 .hadrien-smet {
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 1;
+  font-size: 1em;
+  margin: 0;
   text-transform: uppercase;
   background: linear-gradient(
     90deg,
@@ -34,8 +34,10 @@ h1 {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  /* transform: translateX(-20%);
-  opacity: 0; */
+  transform: translateX(-20%);
+  opacity: 0;
+  animation: appearFromLeft 0.45s ease-out 0.1s forwards,
+    backgroundTitleAnim 20s linear 0.45s alternate infinite;
 }
 .web-developer {
   font-size: 0.7em;
@@ -54,7 +56,9 @@ h1 {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  /* transform: translateX(-20%);
-  opacity: 0; */
+  transform: translateX(-20%);
+  opacity: 0;
+  animation: appearFromLeft 0.45s ease-out 0.4s forwards,
+    backgroundTitleAnim 17s linear 0.5s alternate-reverse infinite;
 }
 </style>

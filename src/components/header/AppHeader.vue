@@ -15,7 +15,7 @@ import HeaderButton from './HeaderButton.vue'
 </template>
 <style scoped>
 header {
-  z-index: 1;
+  z-index: 10;
   position: fixed;
   top: 0px;
   left: 0px;

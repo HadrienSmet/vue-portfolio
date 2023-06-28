@@ -8,26 +8,21 @@
     </em>
     <div class="links-container-buttons">
       <div class="icons">
-        <a aria-label="Link to my Github" href="https://github.com/HadrienSmet" target="_blank">
-          <span class="link-border"></span>
-          <v-icon name="fa-github" />
-        </a>
-        <a
-          aria-label="Link to my linkedIn"
-          href="https://www.linkedin.com/in/hadrien-smet-b80022207/"
-          target="_blank"
-        >
-          <span class="link-border"></span>
-          <v-icon name="fa-linkedin" />
-        </a>
-        <a
-          aria-label="Link to send me a mail"
-          href="mailto:hadriensmet96@gmail.com"
-          target="_blank"
-        >
-          <span class="link-border"></span>
-          <v-icon name="fa-regular-envelope" />
-        </a>
+        <link-icon
+          dynamic-aria="Link to my Github"
+          dynamic-url="https://github.com/HadrienSmet"
+          icon-name="fa-github"
+        />
+        <link-icon
+          dynamic-aria="Link to my linkedIn"
+          dynamic-url="https://www.linkedin.com/in/hadrien-smet-b80022207/"
+          icon-name="fa-linkedin"
+        />
+        <link-icon
+          dynamic-aria="Link to send me a mail"
+          dynamic-url="mailto:hadriensmet96@gmail.com"
+          icon-name="fa-regular-envelope"
+        />
       </div>
       <GradientBorder>
         <a
@@ -44,6 +39,7 @@
 </template>
 <script setup lang="ts">
 import GradientBorder from '../../GradientBorder.vue'
+import LinkIcon from './LinkIcon.vue'
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
@@ -97,36 +93,6 @@ em {
   display: flex;
   justify-content: space-around;
 }
-.icons a {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* transform: translateY(10%);
-  opacity: 0; */
-}
-.icons a:hover .link-border {
-  transform: scale(1);
-  opacity: 1;
-}
-.icons a:first-of-type .link-border {
-  border-radius: 50% !important;
-}
-.link-border {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 3px solid var(--clr-2);
-  border-radius: 4px;
-  transition: transform 0.2s ease-in-out, opacity 0.25s ease-in;
-  transform: scale(0.8);
-  opacity: 0;
-}
-svg {
-  color: var(--clr-2);
-  height: 90px;
-  width: 90px;
-}
 .gradient {
   border: 3px solid transparent;
   border-radius: 4px;
@@ -137,25 +103,22 @@ svg {
 }
 .gradient:hover {
   background: linear-gradient(var(--clr-1), var(--clr-1)),
-    linear-gradient(var(--clr-2), var(--clr-2));
-  background-clip: padding-box, border-box;
-  background-origin: border-box;
+    linear-gradient(var(--clr-2), var(--clr-2)) !important;
+  background-clip: padding-box, border-box !important;
+  background-origin: border-box !important;
   translate: 0px -3px;
   scale: 1.05 0.95;
 }
 .gradient:hover a {
-  /* background: var(--clr-2);
-  background-clip: text; */
-  /* color: black; */
-  background: white;
-  background-clip: initial !important;
+  background: var(--clr-2);
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
 }
 .gradient a {
   padding: 8px 15px;
   width: 100%;
   height: 100%;
   font-weight: 900;
-  /* text-transform: uppercase; */
   font-size: 1.5em;
   display: flex;
   justify-content: center;

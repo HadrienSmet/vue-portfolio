@@ -3,7 +3,7 @@
     <slot></slot>
   </div>
 </template>
-<script setup lang=""></script>
+<script setup lang="ts"></script>
 <style>
 .background-layout {
   position: absolute;

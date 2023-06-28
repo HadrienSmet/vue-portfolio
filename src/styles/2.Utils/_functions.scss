@@ -1,0 +1,4 @@
+@function delayCalculator($i) {
+  $delay: 50ms + ($i * 60ms);
+  @return $delay;
+}

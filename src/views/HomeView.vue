@@ -2,6 +2,7 @@
 import BackgroundLayout from '../components/BackgroundLayout.vue'
 import BackgroundImage from '../assets/images/ink-splash.webp'
 import HomeIntro from '../components/homeView/intro/HomeIntro.vue'
+import HomeWork from '../components/homeView/work/HomeWork.vue'
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import HomeIntro from '../components/homeView/intro/HomeIntro.vue'
       <img :src="BackgroundImage" alt="splashed ink" />
     </BackgroundLayout>
     <HomeIntro />
+    <HomeWork />
   </main>
 </template>
 <style scoped>
@@ -33,5 +35,10 @@ import HomeIntro from '../components/homeView/intro/HomeIntro.vue'
   pointer-events: none;
   /* opacity: 0;
   animation: increaseOpacity 1s cubic-bezier(1, 0, 0.82, 0.96) forwards; */
+}
+section {
+  height: 100vh;
+  padding-left: calc((100vw - 16px) / 12);
+  padding-right: calc((100vw - 16px) / 12);
 }
 </style>

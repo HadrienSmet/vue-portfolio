@@ -10,9 +10,11 @@ import OnlineProjectsDivision from './OnlineProjectsDivision.vue'
 </script>
 <style scoped>
 .work {
+  min-height: 100vh;
   padding-top: 120px;
   position: relative;
   z-index: 1;
+  margin-bottom: 80px;
 }
 .work::after {
   content: '';
@@ -20,6 +22,7 @@ import OnlineProjectsDivision from './OnlineProjectsDivision.vue'
   width: 70%;
   height: 1px;
   left: 15%;
+  bottom: -10px;
   background-color: var(--clr-2-op7);
   /* transform: scaleX(0); */
   transform-origin: left;

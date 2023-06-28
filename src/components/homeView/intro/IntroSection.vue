@@ -1,15 +1,16 @@
 <template>
   <section>
-    <HomeIntroDetails />
-    <HomeIntroLinks />
+    <IntroDetails />
+    <IntroLinks />
   </section>
 </template>
 <script setup lang="ts">
-import HomeIntroDetails from './HomeIntroDetails.vue'
-import HomeIntroLinks from './HomeIntroLinks.vue'
+import IntroDetails from './IntroDetails.vue'
+import IntroLinks from './IntroLinks.vue'
 </script>
 <style scoped>
 section {
+  height: 100vh;
   position: relative;
   padding-top: 250px;
   display: flex;

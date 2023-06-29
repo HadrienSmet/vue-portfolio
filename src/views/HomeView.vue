@@ -7,15 +7,19 @@
     <IntroSection />
     <WorkSection />
     <AboutSection />
+    <ContactSection />
   </main>
 </template>
+
 <script setup lang="ts">
 import BackgroundLayout from '@/components/BackgroundLayout.vue'
 import BackgroundImage from '@/assets/images/ink-splash.webp'
 import IntroSection from '@/components/homeView/intro/IntroSection.vue'
 import WorkSection from '@/components/homeView/work/WorkSection.vue'
 import AboutSection from '@/components/homeView/about/AboutSection.vue'
+import ContactSection from '@/components/homeView/contact/ContactSection.vue'
 </script>
+
 <style scoped>
 @media screen and (min-width: 768px) {
   .background-layout img {

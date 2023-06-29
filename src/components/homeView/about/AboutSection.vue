@@ -12,4 +12,8 @@ section {
   padding-top: 120px;
   height: 100vh;
 }
+h2 {
+  font-family: 'title-fonts';
+  text-transform: uppercase;
+}
 </style>

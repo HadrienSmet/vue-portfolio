@@ -12,16 +12,19 @@
           dynamic-aria="Link to my Github"
           dynamic-url="https://github.com/HadrienSmet"
           icon-name="fa-github"
+          size="90"
         />
         <link-icon
           dynamic-aria="Link to my linkedIn"
           dynamic-url="https://www.linkedin.com/in/hadrien-smet-b80022207/"
           icon-name="fa-linkedin"
+          size="90"
         />
         <link-icon
           dynamic-aria="Link to send me a mail"
           dynamic-url="mailto:hadriensmet96@gmail.com"
           icon-name="fa-regular-envelope"
+          size="90"
         />
       </div>
       <GradientBorder>
@@ -39,7 +42,7 @@
 </template>
 <script setup lang="ts">
 import GradientBorder from '../../GradientBorder.vue'
-import LinkIcon from './LinkIcon.vue'
+import LinkIcon from '@/components/LinkIcon.vue'
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
@@ -115,6 +118,7 @@ em {
   -webkit-background-clip: text !important;
 }
 .gradient a {
+  font-family: 'title-fonts';
   padding: 8px 15px;
   width: 100%;
   height: 100%;

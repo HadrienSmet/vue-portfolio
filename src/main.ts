@@ -5,36 +5,40 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
 import {
-  FaRegularEnvelope,
+  CoPostgresql,
+  CoTwitter,
+  FaFacebookSquare,
   FaGithub,
   FaLinkedin,
-  ViFileTypeSass,
-  ViFileTypeTypescriptOfficial,
-  ViFileTypeReactjs,
-  ViFileTypeLightNext,
-  ViFileTypeNode,
+  FaRegularEnvelope,
   SiExpress,
   SiSocketdotio,
+  ViFileTypeLightNext,
   ViFileTypeMongo,
-  CoPostgresql
+  ViFileTypeNode,
+  ViFileTypeReactjs,
+  ViFileTypeSass,
+  ViFileTypeTypescriptOfficial
 } from 'oh-vue-icons/icons'
 
 import App from './App.vue'
 import router from './router'
 
 addIcons(
-  FaRegularEnvelope,
+  CoPostgresql,
+  CoTwitter,
+  FaFacebookSquare,
   FaGithub,
   FaLinkedin,
-  ViFileTypeSass,
-  ViFileTypeTypescriptOfficial,
-  ViFileTypeReactjs,
-  ViFileTypeLightNext,
-  ViFileTypeNode,
+  FaRegularEnvelope,
   SiExpress,
   SiSocketdotio,
+  ViFileTypeLightNext,
   ViFileTypeMongo,
-  CoPostgresql
+  ViFileTypeNode,
+  ViFileTypeReactjs,
+  ViFileTypeSass,
+  ViFileTypeTypescriptOfficial
 )
 
 const app = createApp(App)

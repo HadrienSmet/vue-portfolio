@@ -29,6 +29,7 @@ onUnmounted(() => {
 </script>
 <style>
 .gradient {
+  cursor: pointer;
   background: linear-gradient(var(--clr-1), var(--clr-1)),
     linear-gradient(
       var(--gradient-rotation, 120deg),
@@ -39,5 +40,8 @@ onUnmounted(() => {
   background-clip: padding-box, border-box;
   background-origin: border-box;
   box-shadow: 0px 2px 6px 1px var(--clr-2-op2);
+}
+.gradient * {
+  cursor: pointer;
 }
 </style>

@@ -1,14 +1,15 @@
 <template>
   <a :aria-label="props.dynamicAria" :href="props.dynamicUrl" target="_blank">
     <span class="link-border"></span>
-    <v-icon :name="props.iconName" />
+    <v-icon :name="props.iconName" :style="`height: ${size}px; width: ${size}px`" />
   </a>
 </template>
 <script setup lang="ts">
 const props = defineProps({
   dynamicAria: String,
   dynamicUrl: String,
-  iconName: String
+  iconName: String,
+  size: String
 })
 </script>
 <style scoped>
@@ -39,7 +40,7 @@ a:first-of-type .link-border {
 }
 svg {
   color: var(--clr-2);
-  height: 90px;
-  width: 90px;
+  /* height: 90px;
+  width: 90px; */
 }
 </style>

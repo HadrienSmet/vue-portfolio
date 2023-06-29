@@ -12,5 +12,7 @@ import DoubleImageContainer from './DoubleImageContainer.vue'
 .double-image-division {
   position: relative;
   height: calc(100vh - 149px);
+  display: flex;
+  justify-content: center;
 }
 </style>

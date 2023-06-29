@@ -1,5 +1,6 @@
-import { ref, type Ref } from 'vue'
+import { onMounted, onUnmounted, ref, type Ref } from 'vue'
 import { useWindowSize } from './useWindowSize'
+import { calcRatioX } from '@/functions/calcRatioX'
 
 const handleDoubleImageTranslateX = (ratio: number, element: Ref<HTMLDivElement | null>) => {
   if (element.value !== null) {
@@ -20,16 +21,35 @@ const handleContainersWidth = (
       firstRef.value.style.setProperty('--first-div-width', `0%`)
       secondRef.value.style.setProperty('--second-div-width', `100%`)
     } else {
-      firstRef.value.style.setProperty('--first-div-width', `${100 - (ratio - 25) * 2}%`)
-      secondRef.value.style.setProperty('--second-div-width', `${(ratio - 25) * 2}%`)
+      firstRef.value.style.setProperty(
+        '--first-div-width',
+        `${Math.floor(100 - (ratio - 25) * 2)}%`
+      )
+      secondRef.value.style.setProperty('--second-div-width', `${Math.ceil((ratio - 25) * 2)}%`)
     }
   }
 }
 
-const useImagesOnMousemove = () => {
+export const useImagesOnMousemove = () => {
   const doubleImgRef = ref<HTMLDivElement | null>(null)
   const firstImgContainerRef = ref<HTMLDivElement | null>(null)
   const secondImgContainerRef = ref<HTMLDivElement | null>(null)
   const windowWidth = ref(useWindowSize().windowSize.width)
-  const handlePictureOnMouseMove = (e: MouseEvent) => {}
+
+  const handlePictureOnMouseMove = (e: MouseEvent) => {
+    const ratioX = calcRatioX(e, windowWidth.value)
+    handleDoubleImageTranslateX(ratioX, doubleImgRef)
+    handleContainersWidth(ratioX, firstImgContainerRef, secondImgContainerRef)
+  }
+  onMounted(() => {
+    window.addEventListener('mousemove', handlePictureOnMouseMove)
+  })
+  onUnmounted(() => {
+    window.removeEventListener('mousemove', handlePictureOnMouseMove)
+  })
+  return {
+    doubleImgRef,
+    firstImgContainerRef,
+    secondImgContainerRef
+  }
 }

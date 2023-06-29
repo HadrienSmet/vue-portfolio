@@ -8,12 +8,46 @@
     opacity: 1;
   }
 }
+@keyframes appearFromTop {
+  0% {
+    transform: translateY(-60%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 @keyframes backgroundTitleAnim {
   0% {
     background-position: 0%;
   }
   100% {
     background-position: 90%;
+  }
+}
+@keyframes increaseOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes increaseScaleX {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes increaseScaleY {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
   }
 }
 @keyframes toolsAppearsAnim {

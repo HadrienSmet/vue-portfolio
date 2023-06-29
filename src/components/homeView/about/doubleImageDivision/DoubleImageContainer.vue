@@ -1,12 +1,12 @@
 <template>
-  <div class="double-image-container">
-    <div class="first-image-container">
+  <div ref="doubleImgRef" class="double-image-container">
+    <div ref="firstImgContainerRef" class="first-image-container">
       <img
         src="src/assets/images/photo-cv_pochoir-rsz.webp"
         alt="Picture of a developer that you should hire"
       />
     </div>
-    <div class="second-image-container">
+    <div ref="secondImgContainerRef" class="second-image-container">
       <img
         src="src/assets/images/photo-cv_151222-bgless.webp"
         alt="Illustration of a developer that you really should hire"
@@ -14,7 +14,10 @@
     </div>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useImagesOnMousemove } from '@/hooks/useDoubleImgMousemove'
+const { doubleImgRef, firstImgContainerRef, secondImgContainerRef } = useImagesOnMousemove()
+</script>
 <style scoped>
 @media screen and (min-width: 1025px) {
   img {
@@ -38,7 +41,7 @@
     width: var(--second-div-width) !important;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1024px) and (min-width: 768px) {
   img {
     height: auto;
     width: calc((100vw - (100vw / 6)) * 0.75);
@@ -46,11 +49,19 @@
   .double-image-container {
     width: 75%;
   }
-  .double-image-container.visible .first-image-container {
+}
+@media screen and (min-width: 768px) {
+  /* .double-image-container.visible .first-image-container {
     animation: increaseWidth 1.2s ease-in-out forwards;
   }
   .double-image-container.visible .second-img-container {
     animation: decreaseWidth 1.2s ease-in-out forwards;
+  } */
+  .first-image-container img {
+    left: 0;
+  }
+  .second-image-container img {
+    right: 0;
   }
 }
 img {
@@ -58,10 +69,10 @@ img {
   position: absolute;
 }
 .double-image-container {
-  opacity: 0;
+  /* opacity: 0; */
   position: relative;
   display: flex;
-  transition: opacity 0.5s ease-in-out;
+  /* transition: opacity 0.5s ease-in-out; */
 }
 .double-image-container.visible {
   opacity: 1;

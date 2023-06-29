@@ -1,13 +1,13 @@
 <template>
   <div class="details-container">
-    <a href="#">
+    <a ref="workRef" href="#">
       <h3>More about my work</h3>
       <ul>
         <li>All my projects</li>
         <li>The tools I use</li>
       </ul>
     </a>
-    <a href="#">
+    <a ref="myRef" href="#">
       <h3>More about me</h3>
       <ul>
         <li>Soft skills</li>
@@ -18,7 +18,11 @@
     </a>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useDetailsOnMousemove } from '@/hooks/useDetailsOnMousemove'
+
+const { myRef, workRef } = useDetailsOnMousemove()
+</script>
 <style scoped>
 @media screen and (min-width: 1025px) {
   .details-container.visible {
@@ -27,7 +31,7 @@
   a {
     height: 100%;
     width: 50%;
-    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+    transition: opacity 0.3s ease-in-out, transform 0.15s ease-in-out;
   }
   h3 {
     font-size: clamp(1.5em, 2.5vw, 3em);
@@ -45,8 +49,8 @@
     font-size: 1.5em;
     color: var(--clr-2-op7);
     position: relative;
-    /* transform: translateY(-60%);
-    opacity: 0; */
+    transform: translateY(-60%);
+    opacity: 0;
   }
   li::before {
     content: '';
@@ -55,7 +59,7 @@
     height: 100%;
     width: 3px;
     background: linear-gradient(var(--clr-1), var(--clr-2-op2));
-    /* transform: scaleY(0); */
+    transform: scaleY(0);
     transform-origin: bottom;
   }
   .details-container > a.visible h3::after {
@@ -65,7 +69,7 @@
     animation: appearFromTop 0.15s ease-out forwards;
   }
   .details-container > a.visible ul li::before {
-    animation: increaseScaleY 0.4s ease-in-out forwards;
+    animation: increaseScaleY 0.6s ease-in-out forwards;
   }
   .details-container > a:first-of-type ul li {
     padding-left: 15px;
@@ -99,15 +103,15 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  /* opacity: 0; */
+  opacity: 0;
 }
 .details-container > a.visible {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) !important;
 }
 .details-container > a:first-of-type {
   border-radius: 25px 0 0 25px;
-  /* transform: translateX(15%); */
+  transform: translateX(15%);
 }
 .details-container > a:first-of-type h3::after {
   transform-origin: left;
@@ -117,7 +121,7 @@
   align-items: flex-end;
   text-align: right;
   border-radius: 0 25px 25px 0;
-  /* transform: translateX(-15%); */
+  transform: translateX(-15%);
 }
 h3 {
   font-family: 'title-fonts';
@@ -153,6 +157,6 @@ h3::after {
   width: 100%;
   background: linear-gradient(90deg, var(--clr-2-op9), var(--clr-2-op6), var(--clr-2-op7));
   transform-origin: left;
-  /* transform: scaleX(0); */
+  transform: scaleX(0);
 }
 </style>

@@ -15,25 +15,25 @@
         dynamic-aria="Link to my Github"
         dynamic-url="https://github.com/HadrienSmet"
         icon-name="fa-github"
-        size="65"
+        size="80"
       />
       <link-icon
         dynamic-aria="Link to my linkedIn"
         dynamic-url="https://www.linkedin.com/in/hadrien-smet-b80022207/"
         icon-name="fa-linkedin"
-        size="65"
+        size="80"
       />
       <link-icon
         dynamic-aria="Link to my Github with a facebook icon"
         dynamic-url="https://github.com/HadrienSmet"
         icon-name="fa-facebook-square"
-        size="65"
+        size="80"
       />
       <link-icon
         dynamic-aria="Link to my Github with a twitter icon"
         dynamic-url="https://github.com/HadrienSmet"
         icon-name="co-twitter"
-        size="65"
+        size="80"
       />
       <a
         class="cv-link"
@@ -84,6 +84,7 @@ import LinkIcon from '@/components/LinkIcon.vue'
   }
 }
 h2 {
+  cursor: default;
   font-family: 'title-fonts';
   text-transform: uppercase;
   color: transparent;
@@ -106,6 +107,7 @@ h2 {
         opacity: 0; */
 }
 h3 {
+  cursor: default;
   font-size: clamp(1em, 1.8vw, 2em);
   color: var(--clr-2-op7);
   /* transform: translateY(-10%);

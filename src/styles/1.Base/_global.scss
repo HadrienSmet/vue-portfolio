@@ -15,6 +15,9 @@
   --clr-2-op8: rgba(0, 0, 0, 0.8);
   --clr-2-op9: rgba(0, 0, 0, 0.9);
 }
+html {
+  scroll-behavior: smooth;
+}
 * {
   margin: 0;
   padding: 0;

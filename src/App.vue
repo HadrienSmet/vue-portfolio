@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import AppHeader from './components/header/AppHeader.vue'
+import AppFooter from './components/footer/AppFooter.vue'
 // import HelloWorld from './components/HelloWorld.vue'
 </script>
 
@@ -19,6 +20,7 @@ import AppHeader from './components/header/AppHeader.vue'
   </header> -->
 
   <RouterView />
+  <AppFooter />
 </template>
 
 <style scoped></style>

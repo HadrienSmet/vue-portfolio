@@ -67,6 +67,8 @@ textarea {
   border: none;
   text-transform: uppercase;
   font-family: 'title-fonts';
+  font-size: 1.2em;
+  letter-spacing: 2px;
 }
 .gradient:hover {
   background: linear-gradient(var(--clr-1), var(--clr-1)),

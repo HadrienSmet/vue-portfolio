@@ -1,15 +1,22 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { useHeaderOnScroll } from '@/hooks/useHeaderOnScroll'
 import HeaderButton from './HeaderButton.vue'
+import PageNavigation from './PageNavigation.vue'
+
+const headerRef = ref<HTMLDivElement | null>(null)
+useHeaderOnScroll(headerRef)
 </script>
 <template>
-  <header>
+  <header ref="headerRef">
     <span>Hadri</span>
-    <nav>
+    <!-- <nav>
       <a href="#">Intro</a>
-      <a href="#">Work</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav> -->
+    <PageNavigation />
     <HeaderButton />
   </header>
 </template>
@@ -30,34 +37,8 @@ header {
 header:hover {
   background-color: var(--clr-2);
 }
-span,
-a {
-  color: var(--clr-1);
-}
 span {
+  color: var(--clr-1);
   font-family: 'graff-fonts';
-}
-nav {
-  display: flex;
-  gap: 15px;
-}
-a {
-  text-transform: uppercase;
-  position: relative;
-  letter-spacing: 2px;
-}
-a::before {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 2px;
-  bottom: -2px;
-  background-color: var(--clr-1);
-  transition: 0.2s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-a:hover::before {
-  transform: scaleX(1);
 }
 </style>

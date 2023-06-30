@@ -1,5 +1,5 @@
 <template>
-  <section class="about">
+  <section id="about" class="about">
     <h2>If you want to learn...</h2>
     <DoubleImageDivision />
   </section>

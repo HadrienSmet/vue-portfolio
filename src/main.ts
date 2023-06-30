@@ -7,6 +7,7 @@ import { OhVueIcon, addIcons } from 'oh-vue-icons'
 import {
   CoPostgresql,
   CoTwitter,
+  FaAngleDoubleUp,
   FaFacebookSquare,
   FaGithub,
   FaLinkedin,
@@ -27,6 +28,7 @@ import router from './router'
 addIcons(
   CoPostgresql,
   CoTwitter,
+  FaAngleDoubleUp,
   FaFacebookSquare,
   FaGithub,
   FaLinkedin,

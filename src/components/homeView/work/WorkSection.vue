@@ -1,5 +1,5 @@
 <template>
-  <section class="work">
+  <section id="work" class="work">
     <stacks-container />
     <online-projects-division />
   </section>

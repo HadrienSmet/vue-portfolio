@@ -34,6 +34,9 @@ const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectOnMousemove()
   .online-project-card {
     height: 300px;
   }
+  .online-project-card:hover {
+    width: 125%;
+  }
 }
 .online-project-card {
   cursor: pointer;

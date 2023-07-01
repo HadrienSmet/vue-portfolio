@@ -16,6 +16,7 @@
 </template>
 <script setup lang="ts">
 import { useImagesOnMousemove } from '@/hooks/useDoubleImgMousemove'
+
 const { doubleImgRef, firstImgContainerRef, secondImgContainerRef } = useImagesOnMousemove()
 </script>
 <style scoped>
@@ -51,12 +52,12 @@ const { doubleImgRef, firstImgContainerRef, secondImgContainerRef } = useImagesO
   }
 }
 @media screen and (min-width: 768px) {
-  /* .double-image-container.visible .first-image-container {
+  .about.visible .first-image-container {
     animation: increaseWidth 1.2s ease-in-out forwards;
   }
-  .double-image-container.visible .second-img-container {
+  .about.visible .second-img-container {
     animation: decreaseWidth 1.2s ease-in-out forwards;
-  } */
+  }
   .first-image-container img {
     left: 0;
   }
@@ -69,12 +70,12 @@ img {
   position: absolute;
 }
 .double-image-container {
-  /* opacity: 0; */
+  opacity: 0;
   position: relative;
   display: flex;
-  /* transition: opacity 0.5s ease-in-out; */
+  transition: opacity 0.5s ease-in-out;
 }
-.double-image-container.visible {
+.about.visible .double-image-container {
   opacity: 1;
 }
 .double-image-container div {

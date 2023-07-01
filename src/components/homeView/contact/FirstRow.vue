@@ -103,22 +103,22 @@ h2 {
   background-clip: text;
   -webkit-background-clip: text !important;
   animation: backgroundTitleAnim 20s linear alternate infinite;
-  /* transform: translateY(-10%);
-        opacity: 0; */
+  transform: translateY(-10%);
+  opacity: 0;
 }
 h3 {
   cursor: default;
   font-size: clamp(1em, 1.8vw, 2em);
   color: var(--clr-2-op7);
-  /* transform: translateY(-10%);
-  opacity: 0; */
+  transform: translateY(-10%);
+  opacity: 0;
 }
 span {
   font-family: 'graff-fonts';
   cursor: default;
   color: var(--clr-1);
-  /* transform: translateY(60%);
-  opacity: 0; */
+  transform: translateY(60%);
+  opacity: 0;
 }
 .first-row {
   position: relative;
@@ -134,7 +134,7 @@ span {
   left: 10%;
   bottom: -45px;
   background-color: var(--clr-2-op5);
-  /* transform: scaleX(0); */
+  transform: scaleX(0);
   transform-origin: left;
   transition: 1.3s ease-in-out;
 }
@@ -152,8 +152,8 @@ span {
 .initials-container {
   border-radius: 50%;
   background-color: var(--clr-2);
-  /* transform: translateX(-10%);
-  opacity: 0; */
+  transform: translateX(-10%);
+  opacity: 0;
   display: flex;
   justify-content: center;
   align-items: center;

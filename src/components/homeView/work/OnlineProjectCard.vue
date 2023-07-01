@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="elementRef"
     :id="project.name"
     class="online-project-card"
     @click="handleProjectName"
@@ -23,10 +24,14 @@
 <script setup lang="ts">
 import type { ProjectInterface } from '@/interfaces/Project'
 import { useProjectOnMousemove } from '@/hooks/useProjectOnMouseMove'
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+
 const props = defineProps<{
   project: ProjectInterface
   handleProjectName: (event: MouseEvent) => void
 }>()
+
+const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectOnMousemove()
 </script>
 <style scoped>
@@ -48,8 +53,8 @@ const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectOnMousemove()
   width: 100%;
   border-radius: 12px;
   transition: 0.18s ease-in-out;
-  /* transform: translateY(10%);
-    opacity: 0; */
+  transform: translateY(10%);
+  opacity: 0;
 }
 .online-project-card * {
   pointer-events: none;
@@ -65,7 +70,6 @@ const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectOnMousemove()
 .online-project-card:hover li {
   animation: toolsAppearsAnim 0.11s ease-in-out forwards;
 }
-/* .online-project-card:hover  */
 .online-project-card img {
   position: absolute;
   height: auto;

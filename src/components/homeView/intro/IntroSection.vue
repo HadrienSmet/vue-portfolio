@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="intro">
     <IntroDetails />
     <IntroLinks />
   </section>

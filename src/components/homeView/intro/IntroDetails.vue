@@ -1,16 +1,31 @@
 <template>
-  <div>
+  <div ref="elementRef">
     <h1 class="hadrien-smet">Hadrien Smet</h1>
     <span class="web-developer">Web developer</span>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+
+const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
+</script>
 <style scoped>
+span {
+  cursor: default;
+}
 div {
   display: flex;
   flex-direction: column;
   font-family: 'title-fonts';
   font-size: 4.5em;
+}
+div.visible .hadrien-smet {
+  animation: appearFromLeft 0.45s ease-out 0.1s forwards,
+    backgroundTitleAnim 20s linear 0.45s alternate infinite;
+}
+div.visible .web-developer {
+  animation: appearFromLeft 0.45s ease-out 0.4s forwards,
+    backgroundTitleAnim 17s linear 0.5s alternate-reverse infinite;
 }
 .hadrien-smet {
   font-weight: 900;
@@ -36,9 +51,8 @@ div {
   background-clip: text;
   transform: translateX(-20%);
   opacity: 0;
-  animation: appearFromLeft 0.45s ease-out 0.1s forwards,
-    backgroundTitleAnim 20s linear 0.45s alternate infinite;
 }
+
 .web-developer {
   font-size: 0.7em;
   background: linear-gradient(
@@ -58,7 +72,5 @@ div {
   background-clip: text;
   transform: translateX(-20%);
   opacity: 0;
-  animation: appearFromLeft 0.45s ease-out 0.4s forwards,
-    backgroundTitleAnim 17s linear 0.5s alternate-reverse infinite;
 }
 </style>

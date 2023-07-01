@@ -18,8 +18,8 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* transform: translateY(10%);
-  opacity: 0; */
+  transform: translateY(10%);
+  opacity: 0;
 }
 a:hover .link-border {
   transform: scale(1);
@@ -40,7 +40,5 @@ a:first-of-type .link-border {
 }
 svg {
   color: var(--clr-2);
-  /* height: 90px;
-  width: 90px; */
 }
 </style>

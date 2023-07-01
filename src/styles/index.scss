@@ -2,5 +2,9 @@
 @import './1.Base/global';
 @import './2.Utils/functions';
 @import './2.Utils/keyframes';
-@import './3.Components/detailsContainer';
-@import './3.Components/onlineProjectCard';
+@import './3.Components/homeView/detailsContainer';
+@import './3.Components/homeView/introLinksContainer';
+@import './3.Components/homeView/contactSection/contact';
+@import './3.Components/homeView/workSection/onlineProjectCard';
+@import './3.Components/homeView/workSection/stacksContainer';
+@import './3.Components/homeView/workSection/onlineProjectsDivision';

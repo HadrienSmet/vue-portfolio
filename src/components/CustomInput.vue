@@ -19,8 +19,8 @@ label {
   position: absolute;
   text-transform: uppercase;
   transition: 0.2s ease-in-out;
-  /* transform: translateY(-60%);
-            opacity: 0; */
+  transform: translateY(-60%);
+  opacity: 0;
 }
 label.fill {
   scale: 0.5;

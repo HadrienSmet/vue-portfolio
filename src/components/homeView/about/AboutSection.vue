@@ -1,11 +1,14 @@
 <template>
-  <section id="about" class="about">
+  <section id="about" class="about" ref="elementRef">
     <h2>If you want to learn...</h2>
     <DoubleImageDivision />
   </section>
 </template>
 <script setup lang="ts">
 import DoubleImageDivision from '@/components/homeView/about/doubleImageDivision/DoubleImageDivision.vue'
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+
+const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
 <style scoped>
 section {
@@ -15,5 +18,12 @@ section {
 h2 {
   font-family: 'title-fonts';
   text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(-10%);
+  transition: 0.3s ease-out;
+}
+.about.visible h2 {
+  opacity: 1;
+  transform: translateX(0);
 }
 </style>

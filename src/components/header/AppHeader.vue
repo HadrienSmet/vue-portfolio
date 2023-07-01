@@ -10,12 +10,6 @@ useHeaderOnScroll(headerRef)
 <template>
   <header ref="headerRef">
     <span>Hadri</span>
-    <!-- <nav>
-      <a href="#">Intro</a>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav> -->
     <PageNavigation />
     <HeaderButton />
   </header>
@@ -38,6 +32,7 @@ header:hover {
   background-color: var(--clr-2);
 }
 span {
+  cursor: default;
   color: var(--clr-1);
   font-family: 'graff-fonts';
 }

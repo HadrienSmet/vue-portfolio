@@ -1,5 +1,5 @@
 <template>
-  <div class="stacks-container">
+  <div ref="elementRef" class="stacks-container">
     <v-icon name="vi-file-type-sass" />
     <v-icon name="vi-file-type-typescript-official" />
     <v-icon name="vi-file-type-reactjs" />
@@ -11,7 +11,11 @@
     <v-icon name="co-postgresql" />
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+
+const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
+</script>
 <style scoped>
 svg {
   height: 90px;

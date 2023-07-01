@@ -45,22 +45,22 @@ textarea {
   padding: 15px 25px;
   border: 2px solid var(--clr-2);
   border-radius: 4px;
-  /* opacity: 0; */
+  opacity: 0;
 }
-/* input {
-        transform: translateX(10%);
-    } */
+input {
+  transform: translateX(10%);
+}
 textarea {
   resize: none;
   height: 180px;
-  /* transform: translateX(-10%); */
+  transform: translateX(-10%);
 }
 .gradient {
   border: 3px solid transparent;
   border-radius: 4px;
   transition: 0.2s;
-  /* opacity: 0;
-    transform: translateY(60%); */
+  opacity: 0;
+  transform: translateY(60%);
 }
 .gradient input {
   background: transparent;

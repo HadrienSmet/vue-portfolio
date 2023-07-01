@@ -1,5 +1,5 @@
 <template>
-  <div class="links-container">
+  <div ref="elementRef" class="links-container">
     <em>
       After a few years working in differents fields, I chose to follow my dream and I started
       studying to become a web developer.
@@ -43,23 +43,34 @@
 <script setup lang="ts">
 import GradientBorder from '../../GradientBorder.vue'
 import LinkIcon from '@/components/LinkIcon.vue'
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+
+const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
+  em {
+    font-size: 1.5em;
+    width: 75%;
+  }
   .links-container {
     width: 450px;
     height: 100%;
     background-color: var(--clr-1-op5);
-  }
-  .links-container em {
-    font-size: 1.5em;
-    width: 75%;
   }
   .links-container-buttons {
     width: 100%;
   }
 }
 
+em {
+  position: relative;
+  text-align: center;
+  line-height: 1.5;
+  color: var(--clr-2-op7);
+  transform: scale(0) translateY(5px);
+  opacity: 0;
+}
 .links-container {
   display: flex;
   flex-direction: column;
@@ -69,22 +80,8 @@ import LinkIcon from '@/components/LinkIcon.vue'
   position: relative;
   padding: 20px;
   border-radius: 8px;
-  /* transform: scale(0) translateY(5px);
-  opacity: 0; */
-}
-.links-container.visible {
-  animation: toolsAppearsAnim 0.4s ease-out 0.1s forwards;
-}
-.links-container.visible em {
-  animation: toolsAppearsAnim 0.35s ease-out 0.64s forwards;
-}
-em {
-  position: relative;
-  text-align: center;
-  line-height: 1.5;
-  color: var(--clr-2-op7);
-  /* transform: scale(0) translateY(5px);
-  opacity: 0; */
+  transform: scale(0) translateY(5px);
+  opacity: 0;
 }
 .links-container-buttons {
   display: flex;
@@ -101,8 +98,8 @@ em {
   border-radius: 4px;
   width: calc(100% - 6px);
   transition: 0.2s;
-  /* transform: translateX(10%);
-  opacity: 0; */
+  transform: translateX(10%);
+  opacity: 0;
 }
 .gradient:hover {
   background: linear-gradient(var(--clr-1), var(--clr-1)),

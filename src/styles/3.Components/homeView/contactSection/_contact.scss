@@ -1,0 +1,64 @@
+.contact__content.visible {
+  .first-row {
+    &::after {
+      transform: scaleX(1);
+    }
+    &__header {
+      h2 {
+        animation: appearFromLeft 0.3s ease-out 0.28s forwards;
+      }
+      h3 {
+        animation: appearFromLeft 0.3s ease-out 0.38s forwards;
+      }
+      .initials-container {
+        animation: appearFromRight 0.3s ease-out 0.32s forwards;
+        span {
+          animation: appearFromBottom 0.4s ease-out forwards;
+          &:nth-child(1) {
+            animation-delay: 0.47s !important;
+          }
+          &:nth-child(2) {
+            animation-delay: 0.62s !important;
+          }
+        }
+      }
+    }
+  }
+  .social-medias-container a {
+    animation: appearFromTop 0.3s ease-out forwards;
+  }
+  form {
+    > div {
+      &:nth-child(1) label {
+        animation-delay: 0.63s !important;
+      }
+      &:nth-child(2) label {
+        animation-delay: 0.7s !important;
+      }
+      &:nth-child(3) label {
+        animation-delay: 0.8s !important;
+      }
+      label {
+        animation: appearFromTop 0.3s ease-out forwards;
+      }
+    }
+    input {
+      animation: appearFromRight 0.3s ease-out 0.52s forwards;
+    }
+    textarea {
+      animation: appearFromLeft 0.3s ease-out 0.6s forwards;
+    }
+    .gradient {
+      animation: appearFromBottom 0.3s ease-out 0.68s forwards;
+    }
+  }
+}
+.social-medias-container a {
+  transform: translateY(-60%);
+  opacity: 0;
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      animation-delay: delayCalculator($i) + 0.15s !important;
+    }
+  }
+}

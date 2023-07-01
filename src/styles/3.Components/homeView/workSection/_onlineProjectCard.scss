@@ -1,0 +1,19 @@
+.online-project {
+  &-card {
+    &.visible {
+      animation: smallAppearFromBottom 0.4s ease-out forwards;
+    }
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        animation-delay: longDelayCalculator($i) !important;
+      }
+    }
+  }
+  &-content li {
+    @for $i from 1 through 9 {
+      &:nth-child(#{$i}) {
+        animation-delay: delayCalculator($i) !important;
+      }
+    }
+  }
+}

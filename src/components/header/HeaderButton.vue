@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useNavigationStore } from '@/stores/NavigationStore'
+import { storeToRefs } from 'pinia'
 
+const store = useNavigationStore()
+const { isNavOpen } = storeToRefs(store)
+const { toggleNavOpen } = store
 const isExpanded = ref(false)
 function targetAttributeToggler() {
   isExpanded.value = !isExpanded.value
@@ -8,6 +13,8 @@ function targetAttributeToggler() {
 
 function handleButtonBehavior() {
   targetAttributeToggler()
+  toggleNavOpen()
+  console.log(isNavOpen.value)
 }
 </script>
 <template>

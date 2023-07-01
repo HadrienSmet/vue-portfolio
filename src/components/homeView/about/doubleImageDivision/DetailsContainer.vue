@@ -1,5 +1,5 @@
 <template>
-  <div class="details-container">
+  <div ref="detailsRef" class="details-container">
     <a ref="workRef" href="#">
       <h3>More about my work</h3>
       <ul>
@@ -19,8 +19,24 @@
   </div>
 </template>
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import { useDetailsOnMousemove } from '@/hooks/useDetailsOnMousemove'
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 
+const useDetailsOnScroll = () => {
+  const detailsRef = ref<HTMLDivElement | null>(null)
+  const observer = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: '0px'
+  })
+  onMounted(() => {
+    observer.value!.observe(detailsRef.value!)
+  })
+
+  return { detailsRef }
+}
+
+const { detailsRef } = useDetailsOnScroll()
 const { myRef, workRef } = useDetailsOnMousemove()
 </script>
 <style scoped>
@@ -96,7 +112,7 @@ const { myRef, workRef } = useDetailsOnMousemove()
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  /* opacity: 0; */
+  opacity: 0;
 }
 .details-container > a {
   cursor: pointer;

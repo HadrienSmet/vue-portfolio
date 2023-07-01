@@ -1,0 +1,14 @@
+.stacks-container {
+  &.visible svg {
+    animation: toolsAppearsAnim 0.12s ease-out forwards;
+  }
+  svg {
+    transform: scale(0) translateY(5px);
+    opacity: 0;
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: delayCalculator($i);
+      }
+    }
+  }
+}

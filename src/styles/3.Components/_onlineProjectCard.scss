@@ -1,7 +1,0 @@
-.online-project-content li {
-  @for $i from 1 through 9 {
-    &:nth-child(#{$i}) {
-      animation-delay: delayCalculator($i) !important;
-    }
-  }
-}

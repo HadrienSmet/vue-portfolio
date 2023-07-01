@@ -1,5 +1,5 @@
 <template>
-  <div class="online-projects-division">
+  <div ref="onlineProjectsDivRef" class="online-projects-division">
     <h2>My online projects</h2>
     <div class="online-projects-container">
       <online-project-card
@@ -9,9 +9,9 @@
         :handle-project-name="handleProjectName"
       />
     </div>
-    <p class="default-description" v-if="selectedProjectName === null">
+    <em class="default-description" v-if="selectedProject === undefined">
       Click on a card to learn more about the site and to display a link
-    </p>
+    </em>
     <div class="online-project-details" v-else>
       <p>{{ selectedProject?.description }}</p>
       <gradient-border>
@@ -20,27 +20,50 @@
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
 import { projectsData } from '../../../data/projectsData'
 import OnlineProjectCard from './OnlineProjectCard.vue'
 import GradientBorder from '@/components/GradientBorder.vue'
 import type { ProjectInterface } from '@/interfaces/Project'
 
-const selectedProjectName = ref<string | null>(null)
-const selectedProject = ref<ProjectInterface | undefined>(undefined)
-const handleProjectName = (e: MouseEvent) => {
-  const target = e.target as Element
-  selectedProjectName.value = target.id
+const useProjectsOnScroll = () => {
+  const onlineProjectsDivRef = ref<HTMLDivElement | null>(null)
+  const observer = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: '0px'
+  })
+  onMounted(() => {
+    observer.value!.observe(onlineProjectsDivRef.value!)
+  })
+  return { onlineProjectsDivRef }
 }
+const useSelectedProject = () => {
+  const selectedProjectName = ref<string | null>(null)
+  const selectedProject = ref<ProjectInterface | undefined>(undefined)
+  const handleProjectName = (e: MouseEvent) => {
+    const target = e.target as Element
+    selectedProjectName.value = target.id
+  }
 
-watch(selectedProjectName, () => {
-  selectedProject.value = projectsData.find((project) => project.name === selectedProjectName.value)
-})
+  watch(selectedProjectName, () => {
+    selectedProject.value = undefined
+    setTimeout(() => {
+      selectedProject.value = projectsData.find(
+        (project) => project.name === selectedProjectName.value
+      )
+    }, 5)
+  })
+  return { selectedProject, handleProjectName }
+}
 
 const onlineProjects = projectsData
   .filter((project) => project.link !== undefined)
   .sort((a, b) => b.id - a.id)
+const { onlineProjectsDivRef } = useProjectsOnScroll()
+const { selectedProject, handleProjectName } = useSelectedProject()
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
@@ -68,6 +91,8 @@ h2 {
   text-transform: uppercase;
   font-size: 2em;
   font-family: 'title-fonts';
+  transform: translateX(-10%);
+  opacity: 0;
 }
 .online-projects-division {
   height: 100%;
@@ -97,6 +122,9 @@ h2 {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  transform: translateX(-10%);
+  opacity: 0;
+  animation: appearFromLeft 0.3s ease-out 0.3s forwards;
 }
 .default-description {
   margin-top: 4%;
@@ -107,8 +135,9 @@ h2 {
   border: 3px solid transparent;
   transition: 0.2s;
   height: 60px;
-  /* transform: translateX(10%);
-  opacity: 0; */
+  transform: translateX(10%);
+  opacity: 0;
+  animation: appearFromRight 0.45s ease-out 0.5s forwards;
 }
 .gradient:hover {
   background: linear-gradient(var(--clr-1), var(--clr-1)),

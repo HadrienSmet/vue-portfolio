@@ -5,11 +5,11 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
-  <nav v-else-if="desiredPath === 'aboutMyWork'">
+  <nav v-else-if="desiredPath === 'about-my-work'">
     <a href="#stacks">Stacks</a>
     <a href="#projects">Projects</a>
   </nav>
-  <nav v-else-if="desiredPath === 'aboutMe'">
+  <nav v-else-if="desiredPath === 'about-me'">
     <a href="#my-intro">Intro</a>
     <a href="#hobbies">Hobbies</a>
     <a href="#perso">Personality</a>

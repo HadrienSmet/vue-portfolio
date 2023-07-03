@@ -3,16 +3,21 @@
     <BackgroundLayout>
       <img :src="BackgroundImage" alt="splashed ink" />
     </BackgroundLayout>
-    <h1>About me</h1>
+    <h1 ref="elementRef">About me</h1>
     <FirstSection />
+    <SecondSection />
   </main>
 </template>
 <script lang="ts" setup>
 import BackgroundLayout from '@/components/BackgroundLayout.vue'
 import BackgroundImage from '@/assets/images/ink-splash.webp'
 import FirstSection from '@/components/aboutMeView/firstSection/FirstSection.vue'
+import SecondSection from '@/components/aboutMeView/secondSection/SecondSection.vue'
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+
+const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
-<style>
+<style scoped>
 @media screen and (min-width: 1025px) {
   img {
     transform: translate(40%, -45%) rotate(250deg);
@@ -73,8 +78,8 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   color: transparent;
-  /* opacity: 0;
-  transform: translateY(-60%); */
+  opacity: 0;
+  transform: translateY(-60%);
   transition: 0.5s ease-out;
 }
 h1.visible {

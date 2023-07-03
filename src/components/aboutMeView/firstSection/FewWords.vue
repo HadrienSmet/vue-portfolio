@@ -1,5 +1,5 @@
 <template>
-  <div class="few-words" ref="fewWordsRef">
+  <div class="few-words" ref="elementRef">
     <h2>Few words</h2>
     <div class="text-container">
       <p>
@@ -17,7 +17,11 @@
     </div>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+
+const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
+</script>
 <style scoped>
 @media screen and (min-width: 1025px) {
   p {
@@ -46,22 +50,22 @@ h2 {
   text-transform: uppercase;
   font-size: 2em;
   color: var(--clr-2-op8);
-  /* transform: translateX(-10%);
-        opacity: 0; */
+  transform: translateX(-10%);
+  opacity: 0;
 }
 p {
   width: 100%;
   text-align: center;
   color: var(--clr-2-op7);
 }
-/* p:nth-child(1) {
+p:nth-child(1) {
   transform: translateX(10%);
   opacity: 0;
 }
 p:nth-child(2) {
   transform: translateX(-10%);
   opacity: 0;
-} */
+}
 .few-words {
   position: relative;
   width: 100%;
@@ -70,13 +74,13 @@ p:nth-child(2) {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  /* transform: scale(0) translateY(5px);
-  opacity: 0; */
+  transform: scale(0) translateY(5px);
+  opacity: 0;
   transition: 0.3s;
 }
 .few-words.visible {
-  /* transform: scale(1) translateY(0);
-  opacity: 1; */
+  transform: scale(1) translateY(0);
+  opacity: 1;
 }
 .few-words.visible h2 {
   animation: appearFromLeft 0.3s ease-out 0.32s forwards;

@@ -1,0 +1,12 @@
+.progress {
+  transition: opacity 0.22s ease-in;
+  position: relative;
+  border-radius: 50%;
+  transform: translateX(-100%);
+  opacity: 0;
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      animation-delay: longDelayCalculator($i) !important;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="soft-skills" ref="softSkillsRef">
+  <div class="soft-skills" ref="elementRef">
     <div class="progress" :style="{ '--i': '75' }">
       <h2>75<span>%</span></h2>
       <v-icon name="fa-book" />
@@ -22,7 +22,10 @@
     </a>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
+</script>
 <style scoped>
 @media screen and (min-width: 1025px) {
   .soft-skills {
@@ -94,8 +97,8 @@
   transition: opacity 0.22s ease-in;
   position: relative;
   border-radius: 50%;
-  /* transform: translateX(-100%);
-        opacity: 0; */
+  transform: translateX(-100%);
+  opacity: 0;
 }
 .progress::before {
   content: '';

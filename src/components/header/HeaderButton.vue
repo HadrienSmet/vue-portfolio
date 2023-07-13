@@ -1,28 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useNavigationStore } from '@/stores/NavigationStore'
-
-const store = useNavigationStore()
-const { toggleNavOpen } = store
-const isExpanded = ref(false)
-function targetAttributeToggler() {
-  isExpanded.value = !isExpanded.value
-}
-
-function handleButtonBehavior() {
-  targetAttributeToggler()
-  toggleNavOpen()
-}
+import { useAppNavigation } from '@/hooks/appNav/useAppNavigation'
+const { buttonRef, toggleNavOpen } = useAppNavigation()
 </script>
 <template>
-  <button
-    ref="{buttonRef}"
-    class="menu"
-    :class="isExpanded && 'opened'"
-    @click="handleButtonBehavior"
-    aria-label="Main Menu"
-    :aria-expanded="isExpanded"
-  >
+  <button ref="buttonRef" class="menu" @click="toggleNavOpen" aria-label="Main Menu">
     <svg id="toggle-nav-button" width="100" height="100" viewBox="0 0 100 100">
       <path
         class="line line1"
@@ -62,17 +43,17 @@ button {
   stroke-dasharray: 60 207;
   stroke-width: 2;
 }
-.opened .line1 {
+.open .line1 {
   stroke-dasharray: 90 207;
   stroke-dashoffset: -134;
   stroke-width: 2;
 }
-.opened .line2 {
+.open .line2 {
   stroke-dasharray: 1 60;
   stroke-dashoffset: -30;
   stroke-width: 2;
 }
-.opened .line3 {
+.open .line3 {
   stroke-dasharray: 90 207;
   stroke-dashoffset: -134;
   stroke-width: 2;

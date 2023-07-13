@@ -17,12 +17,15 @@ import {
   FaRegularEnvelope,
   SiExpress,
   SiSocketdotio,
+  SiThreedotjs,
   ViFileTypeLightNext,
   ViFileTypeMongo,
   ViFileTypeNode,
   ViFileTypeReactjs,
   ViFileTypeSass,
-  ViFileTypeTypescriptOfficial
+  ViFileTypeTypescriptOfficial,
+  ViFileTypeVscode,
+  ViFileTypeVue
 } from 'oh-vue-icons/icons'
 
 import App from './App.vue'
@@ -41,12 +44,15 @@ addIcons(
   FaRegularEnvelope,
   SiExpress,
   SiSocketdotio,
+  SiThreedotjs,
   ViFileTypeLightNext,
   ViFileTypeMongo,
   ViFileTypeNode,
   ViFileTypeReactjs,
   ViFileTypeSass,
-  ViFileTypeTypescriptOfficial
+  ViFileTypeTypescriptOfficial,
+  ViFileTypeVscode,
+  ViFileTypeVue
 )
 
 const app = createApp(App)

@@ -1,0 +1,25 @@
+@media screen and (min-width: 1025px) {
+  .project-card {
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: (($i + 2) % 3) * 0.25s !important;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .project-card {
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: (($i + 1) % 2) * 0.25s !important;
+      }
+    }
+  }
+}
+.project-content li {
+  @for $i from 1 through 9 {
+    &:nth-child(#{$i}) {
+      animation-delay: delayCalculator($i) !important;
+    }
+  }
+}

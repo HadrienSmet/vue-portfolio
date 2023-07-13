@@ -1,7 +1,7 @@
 <template>
   <div class="hobbies-division">
     <h2 ref="elementRef">Hobbies</h2>
-    <ul class="hobbies-container">
+    <ul id="hobbies" class="hobbies-container">
       <HobbyElement
         v-for="hobby in hobbyArray"
         :key="hobby.index"
@@ -25,7 +25,7 @@ import { hobbyArray } from '@/data/hobbiesData'
 import HobbyImage from './HobbyImage.vue'
 import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 
-const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
+const { elementRef } = useElementOnScroll({ threshold: 0.5, rootMargin: '0px' })
 </script>
 <style scoped>
 .hobbies-division {

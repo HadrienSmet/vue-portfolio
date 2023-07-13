@@ -22,7 +22,7 @@ const props = defineProps({
 })
 const store = useHobbyIndexStore()
 const { handleActiveIndex, resetActiveIndex } = store
-const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
+const { elementRef } = useElementOnScroll({ threshold: 0.7, rootMargin: '0px' })
 </script>
 <style scoped>
 .hobby-element {
@@ -43,7 +43,7 @@ const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
   height: 1px;
   background-color: var(--clr-2);
   transform: scaleX(0);
-  transition: 1s ease-out;
+  transition: 0.75s ease-out;
   transform-origin: left;
 }
 .hobby-element::after {
@@ -64,7 +64,7 @@ const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
   transform: translateY(0);
 }
 .hobby-element:hover::after {
-  transform: translateY(-100%);
+  transform: translateY(-105%);
 }
 .hobby-element:hover .hobby-content h3 {
   color: var(--clr-1);
@@ -100,7 +100,7 @@ h3 {
   font-size: clamp(25px, 7vh, 80px);
   opacity: 0;
   transform: translateY(50%);
-  transition: 0.72s ease-in;
+  transition: 0.47s ease-in-out;
   white-space: nowrap;
   text-overflow: ellipsis;
 }

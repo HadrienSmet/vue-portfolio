@@ -1,5 +1,5 @@
 <template>
-  <main class="about-me">
+  <main id="my-intro" class="about-me">
     <BackgroundLayout>
       <img :src="BackgroundImage" alt="splashed ink" />
     </BackgroundLayout>

@@ -1,15 +1,15 @@
 <template>
-  <nav v-if="desiredPath === ''">
+  <nav v-if="currentPath === ''">
     <a href="#intro">Intro</a>
     <a href="#work">Projects</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </nav>
-  <nav v-else-if="desiredPath === 'about-my-work'">
+  <nav v-else-if="currentPath === 'about-my-work'">
     <a href="#stacks">Stacks</a>
     <a href="#projects">Projects</a>
   </nav>
-  <nav v-else-if="desiredPath === 'about-me'">
+  <nav v-else-if="currentPath === 'about-me'">
     <a href="#my-intro">Intro</a>
     <a href="#hobbies">Hobbies</a>
     <a href="#perso">Personality</a>
@@ -17,9 +17,21 @@
   <nav v-else></nav>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue'
-const currentPath = ref(window.location.pathname)
-const desiredPath = currentPath.value.split('/')[1]
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
+const currentPath = ref(window.location.pathname.split('/')[1])
+
+const updateCurrentPath = () => {
+  currentPath.value = window.location.pathname.split('/')[1]
+}
+watch(
+  route,
+  () => {
+    updateCurrentPath()
+  },
+  { immediate: true }
+)
 </script>
 <style scoped>
 nav {

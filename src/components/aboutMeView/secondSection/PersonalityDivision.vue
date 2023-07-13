@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 
-const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
+const { elementRef } = useElementOnScroll({ threshold: 0.6, rootMargin: '0px' })
 </script>
 <style scoped>
 @media screen and (min-width: 768px) {

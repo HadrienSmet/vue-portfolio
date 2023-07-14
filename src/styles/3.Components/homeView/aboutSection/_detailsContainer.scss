@@ -1,0 +1,54 @@
+@media screen and (max-width: 1024px) {
+  .details-container {
+    gap: 10px;
+    flex-direction: column;
+    padding-bottom: 100px;
+    &.visible {
+      animation: increaseOpacity 0.2s ease-out 0.15s forwards;
+      > a {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        &:first-of-type h3::after {
+          transform-origin: left;
+          animation-delay: 0.45s;
+        }
+        &:last-of-type h3::after {
+          animation-delay: 0.8s;
+        }
+      }
+      h3::after {
+        animation: increaseScaleX 0.8s ease-in-out forwards;
+      }
+    }
+    > a {
+      width: 100%;
+      height: unset;
+      transition: opacity 1.2s ease-out;
+      &:last-of-type {
+        h3::after {
+          transform-origin: right;
+        }
+      }
+      ul {
+        display: none;
+      }
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .details-container {
+      overflow: hidden;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .details-container > a {
+    padding: 35px 25px;
+  }
+}
+.details-container li {
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      animation-delay: delayCalculator($i) !important;
+    }
+  }
+}

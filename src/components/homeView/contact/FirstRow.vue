@@ -15,25 +15,25 @@
         dynamic-aria="Link to my Github"
         dynamic-url="https://github.com/HadrienSmet"
         icon-name="fa-github"
-        size="80"
+        :size="iconSize"
       />
       <link-icon
         dynamic-aria="Link to my linkedIn"
         dynamic-url="https://www.linkedin.com/in/hadrien-smet-b80022207/"
         icon-name="fa-linkedin"
-        size="80"
+        :size="iconSize"
       />
       <link-icon
         dynamic-aria="Link to my Github with a facebook icon"
         dynamic-url="https://github.com/HadrienSmet"
         icon-name="fa-facebook-square"
-        size="80"
+        :size="iconSize"
       />
       <link-icon
         dynamic-aria="Link to my Github with a twitter icon"
         dynamic-url="https://github.com/HadrienSmet"
         icon-name="co-twitter"
-        size="80"
+        :size="iconSize"
       />
       <a
         class="cv-link"
@@ -48,6 +48,25 @@
 </template>
 <script setup lang="ts">
 import LinkIcon from '@/components/LinkIcon.vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+const iconSize = ref('')
+
+const handleIconSize = () => {
+  const windowsWidth = ref(window.innerWidth)
+  iconSize.value = '80'
+  if (windowsWidth.value > 767) {
+    iconSize.value = '80'
+  } else {
+    iconSize.value = '50'
+  }
+}
+handleIconSize()
+onMounted(() => {
+  window.addEventListener('resize', () => handleIconSize())
+})
+onUnmounted(() => {
+  window.removeEventListener('resize', () => handleIconSize())
+})
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
@@ -63,6 +82,18 @@ import LinkIcon from '@/components/LinkIcon.vue'
   }
   .social-medias-container {
     position: relative;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .first-row {
+    width: 100%;
+  }
+  .initials-container {
+    height: 130px;
+    min-width: 130px;
+  }
+  span {
+    font-size: 40px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -81,6 +112,19 @@ import LinkIcon from '@/components/LinkIcon.vue'
     width: calc(100% - 380px);
     max-width: 330px;
     height: 56px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .initials-container {
+    height: 90px;
+    min-width: 90px;
+  }
+  span {
+    font-size: 30px;
+  }
+  .social-medias-container svg {
+    width: 40px !important;
+    height: 40px !important;
   }
 }
 h2 {

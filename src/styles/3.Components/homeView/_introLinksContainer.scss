@@ -1,22 +1,22 @@
 .links-container.visible {
-  animation: toolsAppearsAnim 0.4s ease-out 0.1s forwards;
+  animation: toolsAppearsAnim 0.05s ease-out 0.06s forwards;
   em {
-    animation: toolsAppearsAnim 0.55s ease-out 0.4s forwards;
+    animation: toolsAppearsAnim 0.42s ease-out 0.17s forwards;
   }
   .icons {
     a {
       &:first-of-type {
-        animation: smallAppearFromBottom 0.25s ease-out 0.45s forwards;
+        animation: smallAppearFromBottom 0.22s ease-out 0.18s forwards;
       }
       &:nth-child(2) {
-        animation: smallAppearFromBottom 0.25s ease-out 0.52s forwards;
+        animation: smallAppearFromBottom 0.22s ease-out 0.3s forwards;
       }
       &:nth-child(3) {
-        animation: smallAppearFromBottom 0.25s ease-out 0.59s forwards;
+        animation: smallAppearFromBottom 0.22s ease-out 0.42s forwards;
       }
     }
   }
   .gradient {
-    animation: appearFromRight 0.25s ease-out 0.62s forwards;
+    animation: appearFromRight 0.25s ease-out 0.52s forwards;
   }
 }

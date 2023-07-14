@@ -38,11 +38,10 @@ import ContactSection from '@/components/homeView/contact/ContactSection.vue'
   transform: translate(-45%, -50%);
 
   pointer-events: none;
-  /* opacity: 0;
-  animation: increaseOpacity 1s cubic-bezier(1, 0, 0.82, 0.96) forwards; */
+  opacity: 0;
+  animation: increaseOpacity 0.8s cubic-bezier(1, 0, 0.82, 0.96) forwards;
 }
 section {
-  /* height: 100vh; */
   padding-left: calc((100vw - 16px) / 12);
   padding-right: calc((100vw - 16px) / 12);
 }

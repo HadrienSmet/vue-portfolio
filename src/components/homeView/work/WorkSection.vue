@@ -12,6 +12,28 @@ import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
 <style scoped>
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .work {
+    overflow: hidden;
+  }
+}
+@media screen and (min-width: 768px) {
+  .work {
+    gap: 45px;
+  }
+  .work::after {
+    bottom: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .work {
+    gap: 15px;
+    height: unset !important;
+  }
+  .work::after {
+    bottom: -15px;
+  }
+}
 .work {
   min-height: 100vh;
   padding-top: 120px;

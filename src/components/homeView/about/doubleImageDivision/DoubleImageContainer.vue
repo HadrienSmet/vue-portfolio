@@ -42,6 +42,31 @@ const { doubleImgRef, firstImgContainerRef, secondImgContainerRef } = useImagesO
     width: var(--second-div-width) !important;
   }
 }
+@media screen and (max-width: 1024px) {
+  .double-image-container {
+    border-radius: 24px;
+    overflow: hidden;
+    height: 50vh;
+    position: absolute !important;
+    transform: translateY(calc(-50% - 100px));
+    top: 50%;
+  }
+  .double-image-container > div {
+    width: 100%;
+  }
+  .first-image-container {
+    width: 100%;
+  }
+  .first-image-container img {
+    top: 0;
+  }
+  .second-image-container {
+    width: 0%;
+  }
+  /* .second-image-container img {
+    top: 0;
+  } */
+}
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   img {
     height: auto;
@@ -50,12 +75,15 @@ const { doubleImgRef, firstImgContainerRef, secondImgContainerRef } = useImagesO
   .double-image-container {
     width: 75%;
   }
+  .double-image-container > div {
+    padding-top: 70px;
+  }
 }
 @media screen and (min-width: 768px) {
   .about.visible .first-image-container {
     animation: increaseWidth 1.2s ease-in-out forwards;
   }
-  .about.visible .second-img-container {
+  .about.visible .second-image-container {
     animation: decreaseWidth 1.2s ease-in-out forwards;
   }
   .first-image-container img {
@@ -65,9 +93,42 @@ const { doubleImgRef, firstImgContainerRef, secondImgContainerRef } = useImagesO
     right: 0;
   }
 }
+@media screen and (max-width: 767px) {
+  .double-image-container {
+    height: 35vh;
+    width: calc(100vw - (100vw / 6));
+    flex-direction: column;
+    transform: translateY(calc(-50% - 50px));
+  }
+  .double-image-container.visible > .first-image-container {
+    animation: increaseHeight 0.8s ease-in-out forwards;
+  }
+  .double-image-container.visible > .second-image-container {
+    animation: decreaseHeight 0.8s ease-in-out forwards;
+  }
+  .double-image-container > div > img {
+    width: calc(100vw - (100vw / 6));
+    height: 35vh;
+  }
+  .first-image-container img {
+    top: 0;
+  }
+  .second-image-container img {
+    bottom: 0;
+  }
+}
+@media screen and (max-width: 320px) {
+  .double-image-container {
+    width: calc(100vw - 40px);
+  }
+  .double-image-container > div > img {
+    width: calc(100vw - 40px);
+  }
+}
 img {
   pointer-events: none;
   position: absolute;
+  object-fit: cover;
 }
 .double-image-container {
   opacity: 0;

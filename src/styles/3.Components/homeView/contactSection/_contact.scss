@@ -1,3 +1,33 @@
+@media screen and (max-width: 767px) {
+  .social-medias-container {
+    display: grid;
+    row-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      'git link fb twit'
+      'btn btn btn btn';
+    a {
+      &:nth-child(1) {
+        grid-area: git;
+      }
+      &:nth-child(2) {
+        grid-area: link;
+      }
+      &:nth-child(3) {
+        grid-area: fb;
+      }
+      &:nth-child(4) {
+        grid-area: twit;
+      }
+      &:nth-child(5) {
+        width: 100%;
+        height: 40px;
+        grid-area: btn;
+      }
+    }
+  }
+}
 .contact__content.visible {
   .first-row {
     &::after {

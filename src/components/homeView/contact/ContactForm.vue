@@ -20,17 +20,30 @@ import GradientBorder from '@/components/GradientBorder.vue'
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
+  form {
+    width: 60%;
+  }
   .gradient {
     width: 50%;
   }
 }
 @media screen and (max-width: 1024px) and (min-width: 768px) {
+  form {
+    width: 80%;
+  }
   .gradient {
     width: 60%;
   }
 }
+@media screen and (max-width: 767px) {
+  form {
+    width: 90%;
+  }
+  .gradient {
+    width: 100%;
+  }
+}
 form {
-  width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;

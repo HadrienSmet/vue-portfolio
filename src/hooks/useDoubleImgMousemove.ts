@@ -1,6 +1,7 @@
 import { onMounted, onUnmounted, ref, type Ref } from 'vue'
 import { useWindowSize } from './useWindowSize'
 import { calcRatioX } from '@/functions/calcRatioX'
+import { useElementOnScroll } from './useElementOnScroll'
 
 const handleDoubleImageTranslateX = (ratio: number, element: Ref<HTMLDivElement | null>) => {
   if (element.value !== null) {
@@ -31,7 +32,8 @@ const handleContainersWidth = (
 }
 
 export const useImagesOnMousemove = () => {
-  const doubleImgRef = ref<HTMLDivElement | null>(null)
+  const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
+  const doubleImgRef = elementRef
   const firstImgContainerRef = ref<HTMLDivElement | null>(null)
   const secondImgContainerRef = ref<HTMLDivElement | null>(null)
   const windowWidth = ref(useWindowSize().windowSize.width)

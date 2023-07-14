@@ -18,6 +18,12 @@ const { buttonRef, toggleNavOpen } = useAppNavigation()
   </button>
 </template>
 <style scoped>
+@media screen and (max-width: 1024px) {
+  button svg {
+    width: 55px;
+    height: 55;
+  }
+}
 button {
   cursor: pointer;
   background-color: transparent;

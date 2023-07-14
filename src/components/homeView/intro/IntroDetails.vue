@@ -10,21 +10,51 @@ import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
 <style scoped>
+@media screen and (min-width: 1025px) {
+  div {
+    width: 566px;
+  }
+  @media screen and (max-width: 1233px) {
+    div {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  div {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  div {
+    height: 125px;
+    font-size: 4.5em;
+  }
+}
+@media screen and (max-width: 767px) {
+  div {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2em;
+  }
+}
 span {
   cursor: default;
 }
 div {
+  position: relative;
   display: flex;
   flex-direction: column;
   font-family: 'title-fonts';
-  font-size: 4.5em;
 }
 div.visible .hadrien-smet {
-  animation: appearFromLeft 0.45s ease-out 0.1s forwards,
+  animation: appearFromLeft 0.45s ease-out 0.05s forwards,
     backgroundTitleAnim 20s linear 0.45s alternate infinite;
 }
 div.visible .web-developer {
-  animation: appearFromLeft 0.45s ease-out 0.4s forwards,
+  animation: appearFromLeft 0.45s ease-out 0.32s forwards,
     backgroundTitleAnim 17s linear 0.5s alternate-reverse infinite;
 }
 .hadrien-smet {

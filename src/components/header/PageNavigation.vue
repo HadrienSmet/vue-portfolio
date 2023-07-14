@@ -34,8 +34,22 @@ watch(
 )
 </script>
 <style scoped>
+@media screen and (max-width: 1024px) {
+  a {
+    font-size: 0.8em;
+  }
+}
+@media screen and (min-width: 768px) {
+  nav {
+    display: flex;
+  }
+}
+@media screen and (max-width: 767px) {
+  nav {
+    display: none;
+  }
+}
 nav {
-  display: flex;
   justify-content: space-around;
   width: 40vw;
 }

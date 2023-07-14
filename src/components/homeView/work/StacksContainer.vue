@@ -17,8 +17,21 @@ import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
 <style scoped>
-svg {
-  height: 90px;
-  width: 90px;
+@media screen and (min-width: 1025px) {
+  svg {
+    height: 90px;
+    width: 90px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .stacks-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

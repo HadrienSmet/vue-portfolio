@@ -35,12 +35,45 @@ const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectOnMousemove()
 </script>
 <style scoped>
+@media screen and (min-width: 1025px) {
+  img {
+    width: calc(((100vw - (100vw / 6)) / 3) + 100px);
+    height: auto;
+  }
+}
+@media screen and (max-width: 1024px) {
+  img {
+    width: auto;
+    height: 100%;
+  }
+  ul {
+    height: 100px;
+    overflow: hidden;
+  }
+  li {
+    height: 28px;
+  }
+}
 @media screen and (min-width: 768px) {
   .online-project-card {
     height: 300px;
   }
   .online-project-card:hover {
     width: 125%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .online-project-card {
+    height: 150px;
+  }
+  .online-project-card:hover {
+    width: 200%;
+  }
+  .online-project-content h3 {
+    font-size: 0.9em;
+  }
+  .online-project-content ul {
+    display: none !important;
   }
 }
 .online-project-card {
@@ -72,8 +105,8 @@ const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectOnMousemove()
 }
 .online-project-card img {
   position: absolute;
-  height: auto;
-  width: calc(((100vw - (100vw / 6)) / 3) + 100px);
+  /* height: auto;
+  width: calc(((100vw - (100vw / 6)) / 3) + 100px); */
 }
 .online-project-content {
   pointer-events: none;

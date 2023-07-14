@@ -14,9 +14,25 @@ import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
 <style scoped>
+@media screen and (min-width: 1025px) {
+  .contact {
+    height: unset !important;
+  }
+}
 @media screen and (min-width: 768px) {
   .contact__content {
     padding: 50px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .contact {
+    height: unset !important;
+  }
+  .contact__content {
+    padding: 35px 25px;
+  }
+  h2 {
+    font-size: clamp(1.2em, 2vw, 2em);
   }
 }
 section {

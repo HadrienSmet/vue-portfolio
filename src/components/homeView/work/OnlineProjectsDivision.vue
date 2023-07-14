@@ -77,6 +77,9 @@ const { selectedProject, handleProjectName } = useSelectedProject()
   }
 }
 @media screen and (min-width: 768px) {
+  h2 {
+    font-size: 2em;
+  }
   .online-project-details {
     padding: 0 12.5%;
     min-height: calc(100vh - 603px);
@@ -85,11 +88,32 @@ const { selectedProject, handleProjectName } = useSelectedProject()
     font-size: 1.4em;
     max-height: calc(100vh - 703px);
   }
+  .gradient {
+    height: 60px;
+  }
+}
+@media screen and (max-width: 767px) {
+  h2 {
+    font-size: 1.5em;
+    background-color: var(--clr-1-op5);
+  }
+  .online-project__more-details {
+    padding: 0 5%;
+  }
+  p {
+    font-size: 1em;
+  }
+  .gradient {
+    height: 45px;
+  }
+  a {
+    font-size: 0.8em;
+    letter-spacing: 1.5px;
+  }
 }
 h2 {
   margin: 0;
   text-transform: uppercase;
-  font-size: 2em;
   font-family: 'title-fonts';
   transform: translateX(-10%);
   opacity: 0;
@@ -131,10 +155,10 @@ h2 {
   text-align: center;
 }
 .gradient {
+  border-radius: 5px;
   position: relative;
   border: 3px solid transparent;
   transition: 0.2s;
-  height: 60px;
   transform: translateX(10%);
   opacity: 0;
   animation: appearFromRight 0.45s ease-out 0.5s forwards;

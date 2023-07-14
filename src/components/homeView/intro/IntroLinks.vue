@@ -62,7 +62,57 @@ const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
     width: 100%;
   }
 }
-
+@media screen and (min-width: 1025px) and (max-width: 1233px) {
+  .links-container {
+    width: 100%;
+    height: 70%;
+  }
+  em {
+    width: 80%;
+  }
+  .links-container-buttons {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .links-container {
+    width: 100%;
+    height: 70%;
+    background-color: var(--clr-1);
+  }
+  em {
+    width: 65%;
+    font-size: 1.5em;
+  }
+  .links-container-buttons {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .icons a {
+    height: 100px;
+    width: 100px;
+  }
+  /* .gradient {
+    font-size: 1.8em;
+  } */
+}
+@media screen and (max-width: 767px) {
+  em {
+    width: 100%;
+    font-size: 1em;
+  }
+  .icons a {
+    width: 50px;
+    height: 50px;
+  }
+  .links-container-buttons {
+    width: 100%;
+  }
+  .gradient {
+    font-size: 1.2em;
+  }
+}
 em {
   position: relative;
   text-align: center;

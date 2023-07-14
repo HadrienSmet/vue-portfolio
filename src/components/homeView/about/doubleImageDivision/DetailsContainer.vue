@@ -78,6 +78,10 @@ const { myRef, workRef } = useDetailsOnMousemove()
     transform: scaleY(0);
     transform-origin: bottom;
   }
+  .details-container > a.visible {
+    opacity: 1;
+    transform: translateX(0) !important;
+  }
   .details-container > a.visible h3::after {
     animation: increaseScaleX 0.8s ease-in-out forwards;
   }
@@ -120,10 +124,6 @@ const { myRef, workRef } = useDetailsOnMousemove()
   display: flex;
   flex-direction: column;
   opacity: 0;
-}
-.details-container > a.visible {
-  opacity: 1;
-  transform: translateX(0) !important;
 }
 .details-container > a:first-of-type {
   border-radius: 25px 0 0 25px;

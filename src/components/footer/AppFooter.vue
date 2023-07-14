@@ -14,9 +14,22 @@ import FooterIcon from './FooterIcon.vue'
 import { handleScrollToTop } from '@/functions/handleScrollTop'
 </script>
 <style scoped>
+@media screen and (min-width: 768px) {
+  footer {
+    justify-content: space-between;
+  }
+}
+@media screen and (max-width: 767px) {
+  span,
+  footer > svg {
+    display: none;
+  }
+  footer {
+    justify-content: center;
+  }
+}
 footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: var(--clr-2);
   padding: 30px calc(100vh / 12);

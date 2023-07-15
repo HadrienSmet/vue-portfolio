@@ -23,8 +23,8 @@
 </template>
 <script setup lang="ts">
 import type { ProjectInterface } from '@/interfaces/Project'
-import { useProjectOnMousemove } from '@/hooks/useProjectOnMouseMove'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useProjectOnMousemove } from '@/hooks/homeView/workSection/useProjectOnMouseMove'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const props = defineProps<{
   project: ProjectInterface
@@ -105,8 +105,6 @@ const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectOnMousemove()
 }
 .online-project-card img {
   position: absolute;
-  /* height: auto;
-  width: calc(((100vw - (100vw / 6)) / 3) + 100px); */
 }
 .online-project-content {
   pointer-events: none;
@@ -155,3 +153,4 @@ li {
   transform: translate(var(--img8-trans-x), var(--img8-trans-y));
 }
 </style>
+@/hooks/homeView/workSection/useProjectOnMouseMove @/hooks/scroll/useElementOnScroll

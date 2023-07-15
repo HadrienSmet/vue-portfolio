@@ -18,7 +18,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
 </script>
@@ -98,3 +98,4 @@ p:nth-child(2) {
   justify-content: space-around;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

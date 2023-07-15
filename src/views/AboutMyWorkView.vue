@@ -13,7 +13,7 @@ import BackgroundLayout from '@/components/BackgroundLayout.vue'
 import BackgroundImage from '@/assets/images/ink-splash.webp'
 import ToolsSection from '@/components/aboutMyWorkView/ToolsSection.vue'
 import ProjectsSection from '@/components/aboutMyWorkView/projectsSection/ProjectsSection.vue'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 const { elementRef } = useElementOnScroll({ threshold: 0.25, rootMargin: '0px' })
 </script>
 <style scoped>

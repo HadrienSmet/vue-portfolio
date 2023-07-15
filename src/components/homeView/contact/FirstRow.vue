@@ -49,24 +49,28 @@
 <script setup lang="ts">
 import LinkIcon from '@/components/LinkIcon.vue'
 import { ref, onMounted, onUnmounted } from 'vue'
-const iconSize = ref('')
+const useIconSize = () => {
+  const iconSize = ref('')
 
-const handleIconSize = () => {
-  const windowsWidth = ref(window.innerWidth)
-  iconSize.value = '80'
-  if (windowsWidth.value > 767) {
+  const handleIconSize = () => {
+    const windowsWidth = ref(window.innerWidth)
     iconSize.value = '80'
-  } else {
-    iconSize.value = '50'
+    if (windowsWidth.value > 767) {
+      iconSize.value = '80'
+    } else {
+      iconSize.value = '50'
+    }
   }
+  handleIconSize()
+  onMounted(() => {
+    window.addEventListener('resize', () => handleIconSize())
+  })
+  onUnmounted(() => {
+    window.removeEventListener('resize', () => handleIconSize())
+  })
+  return { iconSize }
 }
-handleIconSize()
-onMounted(() => {
-  window.addEventListener('resize', () => handleIconSize())
-})
-onUnmounted(() => {
-  window.removeEventListener('resize', () => handleIconSize())
-})
+const { iconSize } = useIconSize()
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {

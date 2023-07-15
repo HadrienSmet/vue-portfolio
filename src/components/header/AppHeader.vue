@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useHeaderOnScroll } from '@/hooks/useHeaderOnScroll'
+import { useHeaderOnScroll } from '@/hooks/scroll/useHeaderOnScroll'
 import HeaderButton from './HeaderButton.vue'
 import PageNavigation from './PageNavigation.vue'
 
@@ -37,3 +37,4 @@ span {
   font-family: 'graff-fonts';
 }
 </style>
+@/hooks/scroll/useHeaderOnScroll

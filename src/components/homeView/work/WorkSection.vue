@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import StacksContainer from './StacksContainer.vue'
 import OnlineProjectsDivision from './OnlineProjectsDivision.vue'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
@@ -60,3 +60,4 @@ const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
   gap: 45px;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

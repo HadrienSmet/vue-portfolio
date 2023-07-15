@@ -1,5 +1,5 @@
 import { ref, onUnmounted, watch } from 'vue'
-import { useWindowSize } from './useWindowSize'
+import { useWindowSize } from '@/hooks/useWindowSize'
 
 export function useProjectOnMousemove() {
   const windowSize = ref(useWindowSize())

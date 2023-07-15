@@ -23,7 +23,7 @@ import DetailsContainer from '@/components/projectView/DetailsContainer.vue'
 import ButtonsContainer from '@/components/projectView/ButtonsContainer.vue'
 import BackgroundLayout from '@/components/BackgroundLayout.vue'
 import BackgroundImage from '@/assets/images/ink-splash.webp'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 import ErrorLayout from '@/components/ErrorLayout.vue'
 import type { Ref } from 'vue'
 
@@ -34,6 +34,7 @@ const props = defineProps({
   }
 })
 let mainTitleValue: string, detailsTitleValue: string, element: Ref<HTMLDivElement | null>
+
 const rightProject = projectsData.find((project) => project.id === parseInt(props.index))
 const handleTitle = (project: ProjectInterface) => {
   let mainTitle, detailsTitle
@@ -49,7 +50,6 @@ const handleTitle = (project: ProjectInterface) => {
   return { mainTitle, detailsTitle }
 }
 if (typeof rightProject !== 'undefined') {
-  console.log('got here')
   const { mainTitle, detailsTitle } = handleTitle(rightProject!)
   const { elementRef } = useElementOnScroll({ threshold: 0.25, rootMargin: '0px' })
   mainTitleValue = mainTitle

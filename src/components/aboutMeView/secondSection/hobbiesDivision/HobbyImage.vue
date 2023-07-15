@@ -20,7 +20,7 @@ import { ref, watch, computed, onMounted, onUnmounted, type Ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useHobbyIndexStore } from '@/stores/HobbyIndexStore'
 import { useMousePosition } from '@/hooks/useMousePosition'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const props = defineProps({
   url: String,
@@ -56,12 +56,14 @@ const useWindowWidth = () => {
 const { x, y } = useMousePosition()
 const { isActive } = useActiveIndex()
 const { windowsWidth } = useWindowWidth()
-if (windowsWidth.value < 1025) {
-  const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
-  imageRef = elementRef
-}
 const mediaUrl = computed(() => {
   return `/src/assets/images/${props.url}`
+})
+watch(windowsWidth, () => {
+  if (windowsWidth.value < 1025) {
+    const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
+    imageRef = elementRef
+  }
 })
 </script>
 <style scoped>
@@ -132,3 +134,4 @@ img.is-active {
   opacity: 1;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

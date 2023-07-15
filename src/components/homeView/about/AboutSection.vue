@@ -6,7 +6,7 @@
 </template>
 <script setup lang="ts">
 import DoubleImageDivision from '@/components/homeView/about/doubleImageDivision/DoubleImageDivision.vue'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
@@ -41,3 +41,4 @@ h2 {
   transform: translateX(0);
 }
 </style>
+@/hooks/scroll/useElementOnScroll

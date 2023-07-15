@@ -6,26 +6,30 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const borderRef = ref<HTMLDivElement | null>(null)
-function findDegree(element: HTMLDivElement | null, event: MouseEvent) {
-  const rect = element!.getBoundingClientRect()
-  const x = event.clientX - rect.left
-  const y = event.clientY - rect.top
-  const radianDegree = Math.atan2(y, x)
-  const degree = (radianDegree * 180) / Math.PI + 180
+const useGradientBorder = () => {
+  const borderRef = ref<HTMLDivElement | null>(null)
+  function findDegree(element: HTMLDivElement | null, event: MouseEvent) {
+    const rect = element!.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    const radianDegree = Math.atan2(y, x)
+    const degree = (radianDegree * 180) / Math.PI + 180
 
-  return degree
+    return degree
+  }
+  function handleMouseMove(e: MouseEvent) {
+    const degree = findDegree(borderRef.value, e)
+    borderRef.value!.style.setProperty('--gradient-rotation', `${degree + 110}deg`)
+  }
+  onMounted(() => {
+    window.addEventListener('mousemove', handleMouseMove)
+  })
+  onUnmounted(() => {
+    window.removeEventListener('mousemove', handleMouseMove)
+  })
+  return { borderRef }
 }
-function handleMouseMove(e: MouseEvent) {
-  const degree = findDegree(borderRef.value, e)
-  borderRef.value!.style.setProperty('--gradient-rotation', `${degree + 110}deg`)
-}
-onMounted(() => {
-  window.addEventListener('mousemove', handleMouseMove)
-})
-onUnmounted(() => {
-  window.removeEventListener('mousemove', handleMouseMove)
-})
+const { borderRef } = useGradientBorder()
 </script>
 <style>
 .gradient {

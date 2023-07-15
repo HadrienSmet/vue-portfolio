@@ -14,8 +14,7 @@
 </template>
 <script setup lang="ts">
 import { useHobbyIndexStore } from '@/stores/HobbyIndexStore'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
-
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 const props = defineProps({
   index: Number,
   text: String
@@ -137,3 +136,4 @@ h3 {
   transition: 0.47s ease-in-out;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

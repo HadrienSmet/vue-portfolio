@@ -43,7 +43,7 @@
 <script setup lang="ts">
 import GradientBorder from '../../GradientBorder.vue'
 import LinkIcon from '@/components/LinkIcon.vue'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
@@ -93,9 +93,6 @@ const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
     height: 100px;
     width: 100px;
   }
-  /* .gradient {
-    font-size: 1.8em;
-  } */
 }
 @media screen and (max-width: 767px) {
   em {
@@ -193,3 +190,4 @@ em {
   animation: backgroundTitleAnim 20s linear alternate infinite;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

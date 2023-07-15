@@ -1,7 +1,7 @@
 import { onMounted, onUnmounted, ref, type Ref } from 'vue'
-import { useWindowSize } from './useWindowSize'
+import { useWindowSize } from '@/hooks/useWindowSize'
 import { calcRatioX } from '@/functions/calcRatioX'
-import { useElementOnScroll } from './useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const handleDoubleImageTranslateX = (ratio: number, element: Ref<HTMLDivElement | null>) => {
   if (element.value !== null) {

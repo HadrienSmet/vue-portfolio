@@ -7,7 +7,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 const props = defineProps({
   project: Object
 })
@@ -44,8 +44,6 @@ p {
   line-height: 1.5;
   color: var(--clr-2-op7);
   text-align: center;
-  /* transform: translateX(10%);
-  opacity: 0; */
   transition: 0.5s ease-out;
 }
 p.visible {
@@ -76,3 +74,4 @@ li {
   justify-content: space-around;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

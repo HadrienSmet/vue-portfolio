@@ -1,5 +1,5 @@
 <template>
-  <div ref="onlineProjectsDivRef" class="online-projects-division">
+  <div ref="elementRef" class="online-projects-division">
     <h2>My online projects</h2>
     <div class="online-projects-container">
       <online-project-card
@@ -22,24 +22,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue'
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
+import { ref, watch } from 'vue'
 import { projectsData } from '../../../data/projectsData'
 import OnlineProjectCard from './OnlineProjectCard.vue'
 import GradientBorder from '@/components/GradientBorder.vue'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 import type { ProjectInterface } from '@/interfaces/Project'
 
-const useProjectsOnScroll = () => {
-  const onlineProjectsDivRef = ref<HTMLDivElement | null>(null)
-  const observer = useIntersectionObserver({
-    threshold: 0.1,
-    rootMargin: '0px'
-  })
-  onMounted(() => {
-    observer.value!.observe(onlineProjectsDivRef.value!)
-  })
-  return { onlineProjectsDivRef }
-}
 const useSelectedProject = () => {
   const selectedProjectName = ref<string | null>(null)
   const selectedProject = ref<ProjectInterface | undefined>(undefined)
@@ -62,7 +51,8 @@ const useSelectedProject = () => {
 const onlineProjects = projectsData
   .filter((project) => project.link !== undefined)
   .sort((a, b) => b.id - a.id)
-const { onlineProjectsDivRef } = useProjectsOnScroll()
+
+const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 const { selectedProject, handleProjectName } = useSelectedProject()
 </script>
 <style scoped>
@@ -205,3 +195,4 @@ a {
   -webkit-background-clip: text !important;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

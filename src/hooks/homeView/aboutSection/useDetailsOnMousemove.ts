@@ -1,5 +1,5 @@
 import { onUnmounted, ref, watch } from 'vue'
-import { useWindowSize } from './useWindowSize'
+import { useWindowSize } from '../../useWindowSize'
 import { calcRatioX } from '@/functions/calcRatioX'
 
 export const useDetailsOnMousemove = () => {

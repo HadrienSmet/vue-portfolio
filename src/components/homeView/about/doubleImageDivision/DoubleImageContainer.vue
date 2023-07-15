@@ -15,7 +15,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useImagesOnMousemove } from '@/hooks/useDoubleImgMousemove'
+import { useImagesOnMousemove } from '@/hooks/homeView/aboutSection/useDoubleImgMousemove'
 
 const { doubleImgRef, firstImgContainerRef, secondImgContainerRef } = useImagesOnMousemove()
 </script>
@@ -63,9 +63,6 @@ const { doubleImgRef, firstImgContainerRef, secondImgContainerRef } = useImagesO
   .second-image-container {
     width: 0%;
   }
-  /* .second-image-container img {
-    top: 0;
-  } */
 }
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   img {
@@ -144,3 +141,4 @@ img {
   position: relative;
 }
 </style>
+@/hooks/homeView/aboutSection/useDoubleImgMousemove

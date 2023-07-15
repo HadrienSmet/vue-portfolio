@@ -16,7 +16,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
 </script>
@@ -46,3 +46,4 @@ const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
   gap: 10px;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

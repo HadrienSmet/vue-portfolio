@@ -13,7 +13,7 @@
 </template>
 <script setup lang="ts">
 import GradientBorder from '@/components/GradientBorder.vue'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 const props = defineProps({
   project: Object
 })
@@ -93,3 +93,4 @@ a {
   animation: appearFromBottom 0.25s ease-out forwards;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

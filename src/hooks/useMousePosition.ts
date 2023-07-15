@@ -1,4 +1,4 @@
-import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { onUnmounted, ref, watch } from 'vue'
 
 export const useMousePosition = () => {
   const x = ref(0)
@@ -7,9 +7,6 @@ export const useMousePosition = () => {
     x.value = e.clientX
     y.value = e.clientY
   }
-  //   onMounted(() => {
-  //     document.addEventListener('mousemove', handleMousePosition)
-  //   })
   watch(
     [x, y],
     () => {

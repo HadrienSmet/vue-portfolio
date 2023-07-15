@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import ContactForm from './ContactForm.vue'
 import FirstRow from './FirstRow.vue'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
@@ -61,3 +61,4 @@ section {
   opacity: 1;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

@@ -23,7 +23,7 @@
 import HobbyElement from './HobbyElement.vue'
 import { hobbyArray } from '@/data/hobbiesData'
 import HobbyImage from './HobbyImage.vue'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const { elementRef } = useElementOnScroll({ threshold: 0.5, rootMargin: '0px' })
 </script>
@@ -76,3 +76,4 @@ ul:hover .hobby {
   color: var(--clr-2-op5);
 }
 </style>
+@/hooks/scroll/useElementOnScroll

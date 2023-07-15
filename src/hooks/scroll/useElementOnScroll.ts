@@ -1,5 +1,5 @@
 import { ref, onMounted } from 'vue'
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver'
+import { useIntersectionObserver } from '@/hooks/scroll/useIntersectionObserver'
 
 type HooksPropsType = {
   threshold: number

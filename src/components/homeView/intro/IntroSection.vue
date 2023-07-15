@@ -22,7 +22,6 @@ import IntroLinks from './IntroLinks.vue'
 @media screen and (max-width: 1024px) {
   .intro-section {
     flex-direction: column;
-    /* gap: 40px; */
     justify-content: space-between;
   }
 }

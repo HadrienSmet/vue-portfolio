@@ -16,7 +16,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 const props = defineProps({
   project: Object
 })
@@ -127,3 +127,4 @@ a:hover {
   color: var(--clr-1);
 }
 </style>
+@/hooks/scroll/useElementOnScroll

@@ -5,7 +5,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>
@@ -104,3 +104,4 @@ div.visible .web-developer {
   opacity: 0;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

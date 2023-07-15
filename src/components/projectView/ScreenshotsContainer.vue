@@ -71,7 +71,7 @@ em {
   padding: 8px;
   text-align: center;
   background-color: var(--clr-1-op5);
-  /* opacity: 0; */
+  opacity: 0;
   animation: increaseOpacity 0.6s ease-out 0.9s forwards;
 }
 </style>

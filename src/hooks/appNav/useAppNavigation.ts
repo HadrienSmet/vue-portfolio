@@ -12,7 +12,6 @@ export const useAppNavigation = () => {
   watch(
     isNavOpen,
     () => {
-      console.log(isNavOpen.value)
       if (isNavOpen.value === true) {
         buttonRef.value?.classList.add('open')
         navRef.value?.classList.add('open')

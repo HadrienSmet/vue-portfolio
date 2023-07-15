@@ -13,7 +13,7 @@ import BackgroundLayout from '@/components/BackgroundLayout.vue'
 import BackgroundImage from '@/assets/images/ink-splash.webp'
 import FirstSection from '@/components/aboutMeView/firstSection/FirstSection.vue'
 import SecondSection from '@/components/aboutMeView/secondSection/SecondSection.vue'
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 </script>

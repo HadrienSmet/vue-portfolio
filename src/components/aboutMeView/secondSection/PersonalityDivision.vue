@@ -24,7 +24,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 
 const { elementRef } = useElementOnScroll({ threshold: 0.6, rootMargin: '0px' })
 </script>
@@ -111,3 +111,4 @@ a:hover {
   scale: 1.05 0.98;
 }
 </style>
+@/hooks/scroll/useElementOnScroll

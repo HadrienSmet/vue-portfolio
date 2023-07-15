@@ -1,6 +1,5 @@
 <template>
   <main>
-    <!-- <TheWelcome /> -->
     <BackgroundLayout>
       <img :src="BackgroundImage" alt="splashed ink" />
     </BackgroundLayout>

@@ -93,7 +93,6 @@ h3 {
   color: var(--clr-2);
 }
 a {
-  /* text-transform: uppercase; */
   font-family: 'title-fonts';
   color: var(--clr-2-op7);
 }

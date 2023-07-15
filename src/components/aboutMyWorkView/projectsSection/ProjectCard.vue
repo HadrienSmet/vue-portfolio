@@ -1,5 +1,5 @@
 <template>
-  <div class="project-card">
+  <div ref="elementRef" class="project-card">
     <img
       :src="`src/assets/images/${project!.image_link}`"
       :alt="`screenshot of the project called: ${project!.name}`"
@@ -16,11 +16,12 @@
   </div>
 </template>
 <script setup lang="ts">
-// import { type ProjectInterface } from '@/interfaces/Project'
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 const props = defineProps({
   project: Object
 })
 const project = { ...props.project }
+const { elementRef } = useElementOnScroll({ threshold: 0.33, rootMargin: '0px' })
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
@@ -91,8 +92,8 @@ a:hover {
   max-width: 520px;
   height: 320px;
   border-radius: 8px;
-  /* transform: translateY(10%);
-    opacity: 0; */
+  transform: translateY(10%);
+  opacity: 0;
 }
 .project-card.visible {
   animation: appearFromBottom 0.4s ease-out forwards;

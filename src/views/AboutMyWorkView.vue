@@ -3,7 +3,7 @@
     <BackgroundLayout>
       <img :src="BackgroundImage" alt="splashed ink" />
     </BackgroundLayout>
-    <h1>About my work</h1>
+    <h1 ref="elementRef">About my work</h1>
     <ToolsSection />
     <ProjectsSection />
   </main>
@@ -13,6 +13,8 @@ import BackgroundLayout from '@/components/BackgroundLayout.vue'
 import BackgroundImage from '@/assets/images/ink-splash.webp'
 import ToolsSection from '@/components/aboutMyWorkView/ToolsSection.vue'
 import ProjectsSection from '@/components/aboutMyWorkView/projectsSection/ProjectsSection.vue'
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+const { elementRef } = useElementOnScroll({ threshold: 0.25, rootMargin: '0px' })
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
@@ -82,8 +84,8 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   color: transparent;
-  /* opacity: 0;
-        transform: translateY(-60%); */
+  opacity: 0;
+  transform: translateY(-60%);
   transition: 0.5s ease-out;
 }
 h1.visible {

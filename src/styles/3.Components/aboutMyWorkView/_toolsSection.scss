@@ -1,0 +1,12 @@
+.tools-section.visible svg {
+  animation: appearFromBottom 0.2s ease-out forwards;
+}
+.tools-section svg {
+  transform: translateY(10%);
+  opacity: 0;
+  @for $i from 1 through 14 {
+    &:nth-child(#{$i}) {
+      animation-delay: delayCalculator($i) !important;
+    }
+  }
+}

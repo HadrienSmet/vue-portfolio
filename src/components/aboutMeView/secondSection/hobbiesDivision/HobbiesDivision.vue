@@ -28,6 +28,21 @@ import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 const { elementRef } = useElementOnScroll({ threshold: 0.5, rootMargin: '0px' })
 </script>
 <style scoped>
+@media screen and (min-width: 1025px) {
+  .hobbies-pictures {
+    height: 100%;
+    position: fixed;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .hobbies-division {
+    position: relative;
+  }
+  .hobbies-pictures {
+    position: absolute;
+    margin-top: calc(((100vh - 105px) / 8) + 63px);
+  }
+}
 .hobbies-division {
   display: flex;
   flex-direction: column;
@@ -35,10 +50,8 @@ const { elementRef } = useElementOnScroll({ threshold: 0.5, rootMargin: '0px' })
 }
 .hobbies-pictures {
   pointer-events: none;
-  position: fixed;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
 }
 h2 {

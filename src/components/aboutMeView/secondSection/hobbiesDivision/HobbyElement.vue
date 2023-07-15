@@ -25,10 +25,51 @@ const { handleActiveIndex, resetActiveIndex } = store
 const { elementRef } = useElementOnScroll({ threshold: 0.7, rootMargin: '0px' })
 </script>
 <style scoped>
+@media screen and (min-width: 1025px) {
+  .hobby-element {
+    height: calc((100vh - 160px) / 4);
+  }
+  .hobby-element:hover::after {
+    transform: translateY(-105%);
+  }
+  .hobby-element:hover .hobby-content h3 {
+    color: var(--clr-1);
+  }
+  h3 {
+    font-size: clamp(25px, 7vh, 80px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .hobby-element {
+    height: calc((100vh - 105px) / 4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hobby-element.visible::after {
+    transform: translateY(-105%);
+  }
+  .hobby-element.visible h3 {
+    color: var(--clr-1);
+  }
+  h3 {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  h3 {
+    font-size: clamp(18px, 6vh, 28px);
+  }
+}
+@media screen and (max-width: 767px) {
+  h3 {
+    font-size: clamp(12px, 4vh, 20px);
+  }
+}
 .hobby-element {
   position: relative;
-  /* font-size: 6vh; */
-  height: calc((100vh - 160px) / 4);
   color: var(--clr-2);
   letter-spacing: 2px;
   overflow: hidden;
@@ -63,12 +104,6 @@ const { elementRef } = useElementOnScroll({ threshold: 0.7, rootMargin: '0px' })
   opacity: 1;
   transform: translateY(0);
 }
-.hobby-element:hover::after {
-  transform: translateY(-105%);
-}
-.hobby-element:hover .hobby-content h3 {
-  color: var(--clr-1);
-}
 .hobby-element * {
   pointer-events: none;
 }
@@ -97,11 +132,8 @@ const { elementRef } = useElementOnScroll({ threshold: 0.7, rootMargin: '0px' })
 }
 h3 {
   font-family: 'graff-fonts';
-  font-size: clamp(25px, 7vh, 80px);
   opacity: 0;
   transform: translateY(50%);
   transition: 0.47s ease-in-out;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 </style>

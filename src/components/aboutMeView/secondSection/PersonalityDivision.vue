@@ -51,7 +51,8 @@ h2 {
   color: var(--clr-2-op8);
 }
 p {
-  font-size: 1.5em;
+  font-size: 1.2em;
+  text-align: center;
   color: var(--clr-2-op7);
   transform: translateY(10%);
   opacity: 0;
@@ -61,7 +62,7 @@ p {
   flex-direction: column;
   gap: 15px;
   width: 100%;
-  padding: 50px calc(100vh / 12);
+  padding: 50px calc(100vw / 12);
 }
 .personality-division.visible h2 {
   transform: translateX(0);

@@ -86,6 +86,26 @@ const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
     top: 56%;
   }
 }
+@media screen and (max-width: 767px) {
+  .soft-skills {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .progress {
+    height: 95px;
+    width: 95px;
+  }
+  .progress::after {
+    inset: 6px;
+  }
+  svg {
+    display: none;
+  }
+  h3 {
+    top: 68%;
+    font-size: 0.8em;
+  }
+}
 .soft-skills {
   position: relative;
   display: flex;

@@ -22,7 +22,7 @@ const props = defineProps({
 })
 const store = useHobbyIndexStore()
 const { handleActiveIndex, resetActiveIndex } = store
-const { elementRef } = useElementOnScroll({ threshold: 0.7, rootMargin: '0px' })
+const { elementRef } = useElementOnScroll({ threshold: 0.8, rootMargin: '0px' })
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {

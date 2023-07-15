@@ -107,6 +107,9 @@ const { myRef, workRef } = useDetailsOnMousemove()
     right: 0px;
   }
 }
+ul {
+  padding-top: 25px;
+}
 .details-container {
   position: absolute;
   top: 0;

@@ -44,6 +44,16 @@ const { navRef, toggleNavOpen } = useAppNavigation()
     transition: 0.12s ease-in;
   }
 }
+@media screen and (max-width: 1024px) {
+  li {
+    font-size: 3em;
+  }
+}
+@media screen and (max-width: 767px) {
+  li {
+    font-size: 2em;
+  }
+}
 .app-nav {
   z-index: 2;
   position: fixed;

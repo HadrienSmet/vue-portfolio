@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import NProgress from 'nprogress'
 import HomeView from '../views/HomeView.vue'
+import NotFound from '@/views/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,8 +35,20 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/ProjectView.vue'),
       props: true
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'NotFound',
+      component: NotFound
     }
   ]
+})
+
+router.beforeEach(() => {
+  NProgress.start()
+})
+router.afterEach(() => {
+  NProgress.done()
 })
 
 export default router

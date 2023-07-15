@@ -12,11 +12,11 @@
     :alt="`Picture of my hobby number ${props.index}`"
     :id="`img-${props.index}`"
     class="mobile-hobby"
-    ref="elementRef"
+    ref="imageRef"
   />
 </template>
 <script setup lang="ts">
-import { ref, watch, computed, onMounted, onUnmounted } from 'vue'
+import { ref, watch, computed, onMounted, onUnmounted, type Ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useHobbyIndexStore } from '@/stores/HobbyIndexStore'
 import { useMousePosition } from '@/hooks/useMousePosition'
@@ -26,6 +26,7 @@ const props = defineProps({
   url: String,
   index: Number
 })
+let imageRef: Ref<HTMLDivElement | null> | null = null
 const useActiveIndex = () => {
   const isActive = ref(false)
   const store = useHobbyIndexStore()
@@ -52,10 +53,13 @@ const useWindowWidth = () => {
     })
   return { windowsWidth }
 }
-const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
 const { x, y } = useMousePosition()
 const { isActive } = useActiveIndex()
 const { windowsWidth } = useWindowWidth()
+if (windowsWidth.value < 1025) {
+  const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
+  imageRef = elementRef
+}
 const mediaUrl = computed(() => {
   return `/src/assets/images/${props.url}`
 })

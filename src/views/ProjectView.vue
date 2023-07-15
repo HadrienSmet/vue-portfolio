@@ -1,11 +1,11 @@
 <template>
-  <main class="project">
+  <main v-if="rightProject !== undefined" class="project">
     <BackgroundLayout>
       <img :src="BackgroundImage" alt="splashed ink" />
     </BackgroundLayout>
-    <h1 ref="elementRef">
-      {{ mainTitle }} <br />
-      <span>{{ detailsTitle }}</span>
+    <h1 ref="element">
+      {{ mainTitleValue }} <br />
+      <span>{{ detailsTitleValue }}</span>
     </h1>
     <section class="project-content">
       <ScreenshotsContainer :project="rightProject" />
@@ -13,6 +13,7 @@
     </section>
     <ButtonsContainer :project="rightProject" />
   </main>
+  <ErrorLayout v-else resource="project" redirection="aboutMyWork" button-content="projects" />
 </template>
 <script setup lang="ts">
 import { projectsData } from '@/data/projectsData'
@@ -23,6 +24,8 @@ import ButtonsContainer from '@/components/projectView/ButtonsContainer.vue'
 import BackgroundLayout from '@/components/BackgroundLayout.vue'
 import BackgroundImage from '@/assets/images/ink-splash.webp'
 import { useElementOnScroll } from '@/hooks/useElementOnScroll'
+import ErrorLayout from '@/components/ErrorLayout.vue'
+import type { Ref } from 'vue'
 
 const props = defineProps({
   index: {
@@ -30,6 +33,7 @@ const props = defineProps({
     required: true
   }
 })
+let mainTitleValue: string, detailsTitleValue: string, element: Ref<HTMLDivElement | null>
 const rightProject = projectsData.find((project) => project.id === parseInt(props.index))
 const handleTitle = (project: ProjectInterface) => {
   let mainTitle, detailsTitle
@@ -44,8 +48,14 @@ const handleTitle = (project: ProjectInterface) => {
   }
   return { mainTitle, detailsTitle }
 }
-const { mainTitle, detailsTitle } = handleTitle(rightProject!)
-const { elementRef } = useElementOnScroll({ threshold: 0.25, rootMargin: '0px' })
+if (typeof rightProject !== 'undefined') {
+  console.log('got here')
+  const { mainTitle, detailsTitle } = handleTitle(rightProject!)
+  const { elementRef } = useElementOnScroll({ threshold: 0.25, rootMargin: '0px' })
+  mainTitleValue = mainTitle
+  detailsTitleValue = detailsTitle
+  element = elementRef
+}
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {

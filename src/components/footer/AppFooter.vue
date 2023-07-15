@@ -29,6 +29,8 @@ import { handleScrollToTop } from '@/functions/handleScrollTop'
   }
 }
 footer {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   background-color: var(--clr-2);

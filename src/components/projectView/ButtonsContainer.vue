@@ -1,5 +1,5 @@
 <template>
-  <div class="project__buttons-container">
+  <div ref="elementRef" class="project__buttons-container">
     <GradientBorder>
       <a :href="props.project!.code_link" target="_blank">Code</a>
     </GradientBorder>
@@ -13,10 +13,11 @@
 </template>
 <script setup lang="ts">
 import GradientBorder from '@/components/GradientBorder.vue'
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 const props = defineProps({
   project: Object
 })
-console.log(props.project!.code_server_link)
+const { elementRef } = useElementOnScroll({ threshold: 0.5, rootMargin: '0px' })
 </script>
 <style scoped>
 @media screen and (min-width: 768px) {
@@ -71,8 +72,8 @@ a {
   border-radius: 80px;
   border: 3px solid transparent;
   transition: 0.15s ease-in-out;
-  /* transform: translateY(60%);
-  opacity: 0; */
+  transform: translateY(60%);
+  opacity: 0;
 }
 .gradient:hover {
   background: linear-gradient(var(--clr-1), var(--clr-1)),
@@ -88,7 +89,7 @@ a {
   -webkit-background-clip: text !important;
   transform: scale(0.95) translateY(2px);
 }
-.project__btn-container.visible .gradient {
+.project__buttons-container.visible .gradient {
   animation: appearFromBottom 0.25s ease-out forwards;
 }
 </style>

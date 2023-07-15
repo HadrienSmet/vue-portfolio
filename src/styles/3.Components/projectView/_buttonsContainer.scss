@@ -1,0 +1,7 @@
+.project__buttons-container .gradient {
+  @for $i from 1 through 4 {
+    &:nth-child(#{$i}) {
+      animation-delay: 0.1s + $i * 0.12s !important;
+    }
+  }
+}

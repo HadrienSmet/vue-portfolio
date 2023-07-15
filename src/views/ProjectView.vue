@@ -3,7 +3,7 @@
     <BackgroundLayout>
       <img :src="BackgroundImage" alt="splashed ink" />
     </BackgroundLayout>
-    <h1>
+    <h1 ref="elementRef">
       {{ mainTitle }} <br />
       <span>{{ detailsTitle }}</span>
     </h1>
@@ -22,6 +22,7 @@ import DetailsContainer from '@/components/projectView/DetailsContainer.vue'
 import ButtonsContainer from '@/components/projectView/ButtonsContainer.vue'
 import BackgroundLayout from '@/components/BackgroundLayout.vue'
 import BackgroundImage from '@/assets/images/ink-splash.webp'
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 
 const props = defineProps({
   index: {
@@ -44,6 +45,7 @@ const handleTitle = (project: ProjectInterface) => {
   return { mainTitle, detailsTitle }
 }
 const { mainTitle, detailsTitle } = handleTitle(rightProject!)
+const { elementRef } = useElementOnScroll({ threshold: 0.25, rootMargin: '0px' })
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
@@ -63,9 +65,9 @@ const { mainTitle, detailsTitle } = handleTitle(rightProject!)
   }
   h1 {
     font-size: 2.5em;
-    span {
-      font-size: 0.5em;
-    }
+  }
+  span {
+    font-size: 0.5em;
   }
   .project-content {
     flex-direction: column;
@@ -77,9 +79,9 @@ const { mainTitle, detailsTitle } = handleTitle(rightProject!)
   }
   h1 {
     font-size: 2em;
-    span {
-      font-size: 0.5em;
-    }
+  }
+  span {
+    font-size: 0.5em;
   }
   .project-content {
     flex-direction: column;
@@ -111,8 +113,8 @@ h1 {
   -webkit-text-stroke: 1px var(--clr-1-op5);
   background-clip: text;
   animation: backgroundTitleAnim 11s linear alternate infinite;
-  /* opacity: 0;
-        transform: translateY(-60%); */
+  opacity: 0;
+  transform: translateY(-60%);
   transition: 0.5s ease-out;
   display: flex;
   flex-direction: column;

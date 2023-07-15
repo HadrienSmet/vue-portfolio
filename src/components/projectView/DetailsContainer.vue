@@ -1,15 +1,17 @@
 <template>
   <div class="project-details">
     <p>{{ props.project!.description }}</p>
-    <ul class="project-tools">
+    <ul class="project-tools" ref="elementRef">
       <li v-for="tool in project!.tools" :key="tool">{{ tool }}</li>
     </ul>
   </div>
 </template>
 <script setup lang="ts">
+import { useElementOnScroll } from '@/hooks/useElementOnScroll'
 const props = defineProps({
   project: Object
 })
+const { elementRef } = useElementOnScroll({ threshold: 0.25, rootMargin: '0px' })
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
@@ -51,6 +53,7 @@ p.visible {
   opacity: 1;
 }
 ul {
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   gap: 15px;

@@ -57,12 +57,16 @@ const { x, y } = useMousePosition()
 const { isActive } = useActiveIndex()
 const { windowsWidth } = useWindowWidth()
 
-watch(windowsWidth, () => {
-  if (windowsWidth.value < 1025) {
-    const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })
-    imageRef = elementRef
-  }
-})
+watch(
+  windowsWidth,
+  () => {
+    if (windowsWidth.value < 1025) {
+      const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
+      imageRef = elementRef
+    }
+  },
+  { immediate: true }
+)
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
@@ -79,7 +83,7 @@ watch(windowsWidth, () => {
   }
   .mobile-hobby {
     opacity: 0;
-    scale: 0;
+    scale: 0.1;
     rotate: 0deg;
     transition: scale 0.5s ease-in-out, opacity 0.7s ease-out, rotate 0.35s ease-in;
   }

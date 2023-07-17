@@ -9,69 +9,15 @@
         </li>
       </ul>
       <RouterLink :to="`/project/${project.id}`">See the details</RouterLink>
-      <!-- <a :href="`https://hadri-smet-portfolio.netlify.app/project/${project.id}`"
-        >See the details</a
-      > -->
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
-// import { computed } from 'vue'
-// import bookiSquare from '@/assets/images/booki-square.webp'
-// import ohmyfoodSquare from '@/assets/images/ohMyFood-square.webp'
-// import panthereSquare from '@/assets/images/lapanthere-square.webp'
-// import kanapSquare from '@/assets/images/kanap-square.webp'
-// import piquanteSquare from '@/assets/images/piiiquante-square.webp'
-// import groupomaniaSquare from '@/assets/images/groupomania-square.webp'
-// import travelSquare from '@/assets/images/travelApp-profile.webp'
-// import tinyclipSquare from '@/assets/images/tinyclip-square.webp'
-// import clonedSquare from '@/assets/images/cloned-square.webp'
-// const imagesArray = [
-//   {
-//     id: 0,
-//     imported: bookiSquare
-//   },
-//   {
-//     id: 1,
-//     imported: ohmyfoodSquare
-//   },
-//   {
-//     id: 2,
-//     imported: panthereSquare
-//   },
-//   {
-//     id: 3,
-//     imported: kanapSquare
-//   },
-//   {
-//     id: 4,
-//     imported: piquanteSquare
-//   },
-//   {
-//     id: 5,
-//     imported: groupomaniaSquare
-//   },
-//   {
-//     id: 6,
-//     imported: travelSquare
-//   },
-//   {
-//     id: 7,
-//     imported: tinyclipSquare
-//   },
-//   {
-//     id: 8,
-//     imported: clonedSquare
-//   }
-// ]
 const props = defineProps({
   project: Object
 })
 const project = { ...props.project }
-// const imagePath = computed(() => {
-//   return imagesArray.find((el) => el.id === project.id)?.imported
-// })
 const { elementRef } = useElementOnScroll({ threshold: 0.33, rootMargin: '0px' })
 </script>
 <style scoped>
@@ -90,7 +36,7 @@ const { elementRef } = useElementOnScroll({ threshold: 0.33, rootMargin: '0px' }
     overflow: hidden;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .project-card {
     width: calc((100vw - 16px) - (100vw / 6));
     animation-delay: 0.25s;

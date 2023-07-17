@@ -8,7 +8,9 @@
           {{ tool }}
         </li>
       </ul>
-      <a :href="`http://localhost:5173/project/${project.id}`">See the details</a>
+      <a :href="`https://hadri-smet-portfolio.netlify.app/project/${project.id}`"
+        >See the details</a
+      >
     </div>
   </div>
 </template>

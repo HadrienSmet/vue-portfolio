@@ -1,9 +1,6 @@
 <template>
   <div ref="elementRef" class="project-card">
-    <img
-      :src="`/src/assets/images/${project!.image_link}`"
-      :alt="`screenshot of the project called: ${project!.name}`"
-    />
+    <img :src="imagePath" :alt="`screenshot of the project called: ${project!.name}`" />
     <div class="project-content">
       <h3>{{ project!.name }}</h3>
       <ul>
@@ -17,10 +14,55 @@
 </template>
 <script setup lang="ts">
 import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
+import { computed } from 'vue'
+// import bookiSquare from "@/assets/images/booki-square.webp"
+// import ohmyfoodSquare from "@/assets/images/ohMyFood-square.webp"
+// import panthereSquare from "@/assets/images/lapanthere-square.webp"
+const imagesArray = [
+  {
+    id: 0,
+    path: '/src/assets/images/booki-square.webp'
+  },
+  {
+    id: 1,
+    path: '/src/assets/images/ohMyFood-square.webp'
+  },
+  {
+    id: 2,
+    path: '/src/assets/images/lapanthere-square.webp'
+  },
+  {
+    id: 3,
+    path: '/src/assets/images/kanap-square.webp'
+  },
+  {
+    id: 4,
+    path: '/src/assets/images/piiiquante-square.webp'
+  },
+  {
+    id: 5,
+    path: '/src/assets/images/groupomania-square.webp'
+  },
+  {
+    id: 6,
+    path: '/src/assets/images/travelApp-profile.webp'
+  },
+  {
+    id: 7,
+    path: '/src/assets/images/tinyclip-square.webp'
+  },
+  {
+    id: 8,
+    path: '/src/assets/images/cloned-square.webp'
+  }
+]
 const props = defineProps({
   project: Object
 })
 const project = { ...props.project }
+const imagePath = computed(() => {
+  return imagesArray.find((el) => el.id === project.id)?.path
+})
 const { elementRef } = useElementOnScroll({ threshold: 0.33, rootMargin: '0px' })
 </script>
 <style scoped>

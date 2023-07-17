@@ -25,12 +25,15 @@
 import type { ProjectInterface } from '@/interfaces/Project'
 import { useProjectOnMousemove } from '@/hooks/homeView/workSection/useProjectOnMouseMove'
 import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
+import { computed } from 'vue'
 
 const props = defineProps<{
   project: ProjectInterface
   handleProjectName: (event: MouseEvent) => void
 }>()
-const imagePath = `/src/assets/images/${props.project.image_link}`
+const imagePath = computed(() => {
+  return `/src/assets/images/${props.project.image_link}`
+})
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectOnMousemove()
 </script>

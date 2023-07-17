@@ -1,0 +1,7 @@
+.screenshots-container img {
+  @for $i from 1 through 7 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.18s + 0.2s;
+    }
+  }
+}

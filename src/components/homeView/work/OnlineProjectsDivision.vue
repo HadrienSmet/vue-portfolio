@@ -57,6 +57,9 @@ const { selectedProject, handleProjectName } = useSelectedProject()
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {
+  .online-project-details p {
+    min-height: 160px;
+  }
   .gradient {
     width: 30%;
   }

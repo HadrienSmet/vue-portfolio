@@ -1,6 +1,6 @@
 <template>
   <div ref="elementRef" class="project-card">
-    <img :src="imagePath" :alt="`screenshot of the project called: ${project!.name}`" />
+    <img :src="project.image_link" :alt="`screenshot of the project called: ${project!.name}`" />
     <div class="project-content">
       <h3>{{ project!.name }}</h3>
       <ul>
@@ -17,61 +17,61 @@
 </template>
 <script setup lang="ts">
 import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
-import { computed } from 'vue'
-import bookiSquare from '@/assets/images/booki-square.webp'
-import ohmyfoodSquare from '@/assets/images/ohMyFood-square.webp'
-import panthereSquare from '@/assets/images/lapanthere-square.webp'
-import kanapSquare from '@/assets/images/kanap-square.webp'
-import piquanteSquare from '@/assets/images/piiiquante-square.webp'
-import groupomaniaSquare from '@/assets/images/groupomania-square.webp'
-import travelSquare from '@/assets/images/travelApp-profile.webp'
-import tinyclipSquare from '@/assets/images/tinyclip-square.webp'
-import clonedSquare from '@/assets/images/cloned-square.webp'
-const imagesArray = [
-  {
-    id: 0,
-    imported: bookiSquare
-  },
-  {
-    id: 1,
-    imported: ohmyfoodSquare
-  },
-  {
-    id: 2,
-    imported: panthereSquare
-  },
-  {
-    id: 3,
-    imported: kanapSquare
-  },
-  {
-    id: 4,
-    imported: piquanteSquare
-  },
-  {
-    id: 5,
-    imported: groupomaniaSquare
-  },
-  {
-    id: 6,
-    imported: travelSquare
-  },
-  {
-    id: 7,
-    imported: tinyclipSquare
-  },
-  {
-    id: 8,
-    imported: clonedSquare
-  }
-]
+// import { computed } from 'vue'
+// import bookiSquare from '@/assets/images/booki-square.webp'
+// import ohmyfoodSquare from '@/assets/images/ohMyFood-square.webp'
+// import panthereSquare from '@/assets/images/lapanthere-square.webp'
+// import kanapSquare from '@/assets/images/kanap-square.webp'
+// import piquanteSquare from '@/assets/images/piiiquante-square.webp'
+// import groupomaniaSquare from '@/assets/images/groupomania-square.webp'
+// import travelSquare from '@/assets/images/travelApp-profile.webp'
+// import tinyclipSquare from '@/assets/images/tinyclip-square.webp'
+// import clonedSquare from '@/assets/images/cloned-square.webp'
+// const imagesArray = [
+//   {
+//     id: 0,
+//     imported: bookiSquare
+//   },
+//   {
+//     id: 1,
+//     imported: ohmyfoodSquare
+//   },
+//   {
+//     id: 2,
+//     imported: panthereSquare
+//   },
+//   {
+//     id: 3,
+//     imported: kanapSquare
+//   },
+//   {
+//     id: 4,
+//     imported: piquanteSquare
+//   },
+//   {
+//     id: 5,
+//     imported: groupomaniaSquare
+//   },
+//   {
+//     id: 6,
+//     imported: travelSquare
+//   },
+//   {
+//     id: 7,
+//     imported: tinyclipSquare
+//   },
+//   {
+//     id: 8,
+//     imported: clonedSquare
+//   }
+// ]
 const props = defineProps({
   project: Object
 })
 const project = { ...props.project }
-const imagePath = computed(() => {
-  return imagesArray.find((el) => el.id === project.id)?.imported
-})
+// const imagePath = computed(() => {
+//   return imagesArray.find((el) => el.id === project.id)?.imported
+// })
 const { elementRef } = useElementOnScroll({ threshold: 0.33, rootMargin: '0px' })
 </script>
 <style scoped>

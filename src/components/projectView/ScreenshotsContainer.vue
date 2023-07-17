@@ -3,7 +3,7 @@
     <img
       v-for="(image, index) in props.project!.images"
       :key="`img-${index}`"
-      :src="`/src/assets/images/${image}`"
+      :src="image"
       :alt="`Image number ${index} of ${project!.name}`"
       @click="openNewWindow(image)"
     />
@@ -13,7 +13,7 @@
 const props = defineProps({
   project: Object
 })
-const openNewWindow = (img: string) => window.open('/src/assets/images/' + img, '_blank')
+const openNewWindow = (img: string) => window.open(img, '_blank')
 </script>
 <style scoped>
 @media screen and (min-width: 1025px) {

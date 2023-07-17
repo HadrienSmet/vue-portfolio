@@ -9,7 +9,7 @@
   >
     <img
       ref="imgRef"
-      :src="imagePath"
+      :src="project.image_link"
       :alt="'Illustration du projet ' + props.project.name"
       :id="`illuproject-${project.id}`"
     />
@@ -25,32 +25,32 @@
 import type { ProjectInterface } from '@/interfaces/Project'
 import { useProjectOnMousemove } from '@/hooks/homeView/workSection/useProjectOnMouseMove'
 import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
-import { computed } from 'vue'
-import ClonedSquare from '@/assets/images/cloned-square.webp'
-import tinySquare from '@/assets/images/tinyclip-square.webp'
-import travelSquare from '@/assets/images/travelApp-profile.webp'
-const imageArray = [
-  {
-    id: 8,
-    imported: ClonedSquare
-  },
-  {
-    id: 7,
-    imported: tinySquare
-  },
-  {
-    id: 6,
-    imported: travelSquare
-  }
-]
+// import { computed } from 'vue'
+// import ClonedSquare from '@/assets/images/cloned-square.webp'
+// import tinySquare from '@/assets/images/tinyclip-square.webp'
+// import travelSquare from '@/assets/images/travelApp-profile.webp'
+// const imageArray = [
+//   {
+//     id: 8,
+//     imported: ClonedSquare
+//   },
+//   {
+//     id: 7,
+//     imported: tinySquare
+//   },
+//   {
+//     id: 6,
+//     imported: travelSquare
+//   }
+// ]
 
 const props = defineProps<{
   project: ProjectInterface
   handleProjectName: (event: MouseEvent) => void
 }>()
-const imagePath = computed(() => {
-  return imageArray.find((el) => el.id === props.project.id)?.imported
-})
+// const imagePath = computed(() => {
+//   return imageArray.find((el) => el.id === props.project.id)?.imported
+// })
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectOnMousemove()
 </script>

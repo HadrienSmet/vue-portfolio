@@ -2,13 +2,13 @@
   <div ref="doubleImgRef" class="double-image-container">
     <div ref="firstImgContainerRef" class="first-image-container">
       <img
-        src="src/assets/images/photo-cv_pochoir-rsz.webp"
+        src="/src/assets/images/photo-cv_pochoir-rsz.webp"
         alt="Picture of a developer that you should hire"
       />
     </div>
     <div ref="secondImgContainerRef" class="second-image-container">
       <img
-        src="src/assets/images/photo-cv_151222-bgless.webp"
+        src="/src/assets/images/photo-cv_151222-bgless.webp"
         alt="Illustration of a developer that you really should hire"
       />
     </div>

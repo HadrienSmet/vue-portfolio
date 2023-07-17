@@ -1,14 +1,14 @@
 <template>
   <img
     v-if="windowsWidth > 1024"
-    :src="mediaUrl"
+    :src="props.url"
     :alt="`Picture of my hobby number ${props.index}`"
     :class="isActive && 'is-active'"
     :style="{ transform: `translate(${x + 100}px, ${y - 350}px) rotate(15deg)` }"
   />
   <img
     v-else
-    :src="mediaUrl"
+    :src="props.url"
     :alt="`Picture of my hobby number ${props.index}`"
     :id="`img-${props.index}`"
     class="mobile-hobby"
@@ -16,34 +16,35 @@
   />
 </template>
 <script setup lang="ts">
-import { ref, watch, computed, onMounted, onUnmounted, type Ref } from 'vue'
+// import { hobbyArray } from "@/data/hobbiesData"
+import { ref, watch, onMounted, onUnmounted, type Ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useHobbyIndexStore } from '@/stores/HobbyIndexStore'
 import { useMousePosition } from '@/hooks/useMousePosition'
 import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
-import hobbyCoding from '@/assets/images/hobby-coding.webp'
-import hobbyLearning from '@/assets/images/hobby-learn.webp'
-import hobbyPhilo from '@/assets/images/hobby-philo.webp'
-import hobbyTravel from '@/assets/images/hobby-travel.webp'
+// import hobbyCoding from '@/assets/images/hobby-coding.webp'
+// import hobbyLearning from '@/assets/images/hobby-learn.webp'
+// import hobbyPhilo from '@/assets/images/hobby-philo.webp'
+// import hobbyTravel from '@/assets/images/hobby-travel.webp'
 
-const hobbyArray = [
-  {
-    id: 0,
-    imported: hobbyTravel
-  },
-  {
-    id: 1,
-    imported: hobbyCoding
-  },
-  {
-    id: 2,
-    imported: hobbyLearning
-  },
-  {
-    id: 3,
-    imported: hobbyPhilo
-  }
-]
+// const hobbyArray = [
+//   {
+//     id: 0,
+//     imported: hobbyTravel
+//   },
+//   {
+//     id: 1,
+//     imported: hobbyCoding
+//   },
+//   {
+//     id: 2,
+//     imported: hobbyLearning
+//   },
+//   {
+//     id: 3,
+//     imported: hobbyPhilo
+//   }
+// ]
 
 const props = defineProps({
   url: String,
@@ -79,9 +80,9 @@ const useWindowWidth = () => {
 const { x, y } = useMousePosition()
 const { isActive } = useActiveIndex()
 const { windowsWidth } = useWindowWidth()
-const mediaUrl = computed(() => {
-  return hobbyArray.find((el) => el.id === props.index)?.imported
-})
+// const mediaUrl = computed(() => {
+//   return hobbyArray.find((el) => el.id === props.index)?.mediaUrl
+// })
 watch(windowsWidth, () => {
   if (windowsWidth.value < 1025) {
     const { elementRef } = useElementOnScroll({ threshold: 0.2, rootMargin: '0px' })

@@ -8,9 +8,10 @@
           {{ tool }}
         </li>
       </ul>
-      <a :href="`https://hadri-smet-portfolio.netlify.app/project/${project.id}`"
+      <RouterLink :to="`/project/${project.id}`">See the details</RouterLink>
+      <!-- <a :href="`https://hadri-smet-portfolio.netlify.app/project/${project.id}`"
         >See the details</a
-      >
+      > -->
     </div>
   </div>
 </template>

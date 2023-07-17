@@ -9,7 +9,7 @@
   >
     <img
       ref="imgRef"
-      :src="`/src/assets/images/${props.project.image_link}`"
+      :src="imagePath"
       :alt="'Illustration du projet ' + props.project.name"
       :id="`illuproject-${project.id}`"
     />
@@ -30,7 +30,7 @@ const props = defineProps<{
   project: ProjectInterface
   handleProjectName: (event: MouseEvent) => void
 }>()
-
+const imagePath = `/src/assets/images/${props.project.image_link}`
 const { elementRef } = useElementOnScroll({ threshold: 0.1, rootMargin: '0px' })
 const { imgRef, handleMouseEnter, handleMouseLeave } = useProjectOnMousemove()
 </script>
@@ -153,4 +153,3 @@ li {
   transform: translate(var(--img8-trans-x), var(--img8-trans-y));
 }
 </style>
-@/hooks/homeView/workSection/useProjectOnMouseMove @/hooks/scroll/useElementOnScroll

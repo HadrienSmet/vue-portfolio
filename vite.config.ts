@@ -10,10 +10,5 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  },
-  build: {
-    rollupOptions: {
-      external: ['src/assets/images/photo-cv_pochoir-rsz.webp']
-    }
   }
 })

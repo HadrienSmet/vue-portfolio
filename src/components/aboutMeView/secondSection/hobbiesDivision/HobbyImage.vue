@@ -21,6 +21,29 @@ import { storeToRefs } from 'pinia'
 import { useHobbyIndexStore } from '@/stores/HobbyIndexStore'
 import { useMousePosition } from '@/hooks/useMousePosition'
 import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
+import hobbyCoding from '@/assets/images/hobby-coding.webp'
+import hobbyLearning from '@/assets/images/hobby-learn.webp'
+import hobbyPhilo from '@/assets/images/hobby-philo.webp'
+import hobbyTravel from '@/assets/images/hobby-travel.webp'
+
+const hobbyArray = [
+  {
+    id: 0,
+    imported: hobbyTravel
+  },
+  {
+    id: 1,
+    imported: hobbyCoding
+  },
+  {
+    id: 2,
+    imported: hobbyLearning
+  },
+  {
+    id: 3,
+    imported: hobbyPhilo
+  }
+]
 
 const props = defineProps({
   url: String,
@@ -57,7 +80,7 @@ const { x, y } = useMousePosition()
 const { isActive } = useActiveIndex()
 const { windowsWidth } = useWindowWidth()
 const mediaUrl = computed(() => {
-  return `/src/assets/images/${props.url}`
+  return hobbyArray.find((el) => el.id === props.index)?.imported
 })
 watch(windowsWidth, () => {
   if (windowsWidth.value < 1025) {

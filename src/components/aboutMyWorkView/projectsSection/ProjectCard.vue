@@ -1,7 +1,7 @@
 <template>
   <div ref="elementRef" class="project-card">
     <img
-      :src="`src/assets/images/${project!.image_link}`"
+      :src="`/src/assets/images/${project!.image_link}`"
       :alt="`screenshot of the project called: ${project!.name}`"
     />
     <div class="project-content">

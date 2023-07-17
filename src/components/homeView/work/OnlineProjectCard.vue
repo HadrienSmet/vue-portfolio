@@ -9,7 +9,7 @@
   >
     <img
       ref="imgRef"
-      :src="`src/assets/images/${props.project.image_link}`"
+      :src="`/src/assets/images/${props.project.image_link}`"
       :alt="'Illustration du projet ' + props.project.name"
       :id="`illuproject-${project.id}`"
     />

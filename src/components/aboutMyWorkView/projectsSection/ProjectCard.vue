@@ -15,45 +15,51 @@
 <script setup lang="ts">
 import { useElementOnScroll } from '@/hooks/scroll/useElementOnScroll'
 import { computed } from 'vue'
-// import bookiSquare from "@/assets/images/booki-square.webp"
-// import ohmyfoodSquare from "@/assets/images/ohMyFood-square.webp"
-// import panthereSquare from "@/assets/images/lapanthere-square.webp"
+import bookiSquare from '@/assets/images/booki-square.webp'
+import ohmyfoodSquare from '@/assets/images/ohMyFood-square.webp'
+import panthereSquare from '@/assets/images/lapanthere-square.webp'
+import kanapSquare from '@/assets/images/kanap-square.webp'
+import piquanteSquare from '@/assets/images/piiiquante-square.webp'
+import groupomaniaSquare from '@/assets/images/groupomania-square.webp'
+import travelSquare from '@/assets/images/travelApp-profile.webp'
+import tinyclipSquare from '@/assets/images/tinyclip-square.webp'
+import clonedSquare from '@/assets/images/cloned-square.webp'
 const imagesArray = [
   {
     id: 0,
-    path: '/src/assets/images/booki-square.webp'
+    imported: bookiSquare
   },
   {
     id: 1,
-    path: '/src/assets/images/ohMyFood-square.webp'
+    imported: ohmyfoodSquare
   },
   {
     id: 2,
-    path: '/src/assets/images/lapanthere-square.webp'
+    imported: panthereSquare
   },
   {
     id: 3,
-    path: '/src/assets/images/kanap-square.webp'
+    imported: kanapSquare
   },
   {
     id: 4,
-    path: '/src/assets/images/piiiquante-square.webp'
+    imported: piquanteSquare
   },
   {
     id: 5,
-    path: '/src/assets/images/groupomania-square.webp'
+    imported: groupomaniaSquare
   },
   {
     id: 6,
-    path: '/src/assets/images/travelApp-profile.webp'
+    imported: travelSquare
   },
   {
     id: 7,
-    path: '/src/assets/images/tinyclip-square.webp'
+    imported: tinyclipSquare
   },
   {
     id: 8,
-    path: '/src/assets/images/cloned-square.webp'
+    imported: clonedSquare
   }
 ]
 const props = defineProps({
@@ -61,7 +67,7 @@ const props = defineProps({
 })
 const project = { ...props.project }
 const imagePath = computed(() => {
-  return imagesArray.find((el) => el.id === project.id)?.path
+  return imagesArray.find((el) => el.id === project.id)?.imported
 })
 const { elementRef } = useElementOnScroll({ threshold: 0.33, rootMargin: '0px' })
 </script>
